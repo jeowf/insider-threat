@@ -29,6 +29,8 @@ public class TesteLeitura {
         BufferedReader br = null;
         String linha = "";
         String csvDivisor = ",";
+        Node<Field> root = new Node<Field>(null);
+        Tree<Field> tree = new Tree<Field>(root);
         try {
 
             br = new BufferedReader(new FileReader(arquivoCSV));
@@ -46,6 +48,8 @@ public class TesteLeitura {
                     String role = usuarios[4];
                     
                     User user = new User(id, name, domain, email, role);
+                    Node<Field> userNode = new Node<Field>(user);
+                    tree.insert(userNode);
                 }
                 else
                 {
@@ -66,6 +70,7 @@ public class TesteLeitura {
                 }
             }
         }
+        tree.print();
 
     }
     

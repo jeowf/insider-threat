@@ -8,7 +8,64 @@ package insider.threat;
 /**
  *
  * @author felipemorais2013
+ * @author Daniel Henrique Ferreira Gomes
  */
-public class Tree {
+public class Tree<T> {
+    private Node<T> root;
+
+    public Tree(Node<T> root) {
+        this.root = root;
+    }
+
+    public Node<T> getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node<T> root) {
+        this.root = root;
+    }
+    
+    public void insert(Node<T> node){
+        Node<T> aux = root.getSon();
+        if(aux == null)
+        {
+            root.setSon(node);
+        }
+        else
+        {
+            while(aux != null){
+                try
+                {
+                    if(aux.getValue().getClass() == node.getValue().getClass() )
+                    {
+                        Node<T> brother = aux;
+                        while( brother.getBrother() != null){
+                            brother = brother.getBrother();
+                        }
+                        brother.setBrother(node);
+                        return;
+                    }
+                }
+                catch(Exception ex){
+                    aux = aux.getSon();
+                }
+            }
+        }
+        
+    }
+    
+    public void print()
+    {
+        Node<T> aux = root.getSon();
+        System.out.println( "TESTEEE" );
+        while (aux != null)
+        {
+            if (aux.getValue() instanceof User)
+            {
+                System.out.println( ((User)aux.getValue()).getId() );
+                aux = aux.getBrother();
+            }            
+        }
+    }
     
 }
