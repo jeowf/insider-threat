@@ -25,24 +25,31 @@ public class Tree<T> {
         this.root = root;
     }
     
-    public void insert(Node<T> node){
+    public void insert(Node<T> key){
         Node<T> aux = root.getSon();
         if(aux == null)
         {
-            root.setSon(node);
+            root.setSon(key);
         }
         else
         {
             while(aux != null){
                 try
                 {
-                    if(aux.getValue().getClass() == node.getValue().getClass() )
+                    if(aux.getValue().getClass() == key.getValue().getClass() )
                     {
                         Node<T> brother = aux;
                         while( brother.getBrother() != null){
                             brother = brother.getBrother();
                         }
-                        brother.setBrother(node);
+                        brother.setBrother(key);
+                        if (key.getValue() instanceof User)
+                        {
+                            Date date = new Date();
+                            Node<T> n = new Node<T>((T)date);
+                            brother.setSon(n);
+                        }
+                        brother.setSon(aux);
                         return;
                     }
                 }

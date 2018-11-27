@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,7 +26,12 @@ public class TesteLeitura {
     }
 
     private void run() {
-        String arquivoCSV = "data/2009-12.csv";
+        ArrayList<String> files = new ArrayList();
+        files.add("data/ldap.csv");
+        files.add("data/logon.csv"); 
+        files.add("data/device.csv");
+        files.add("data/http.csv");
+        String arquivoCSV = files.get(0);
         BufferedReader br = null;
         String linha = "";
         String csvDivisor = ",";
