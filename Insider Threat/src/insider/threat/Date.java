@@ -6,18 +6,36 @@
 package insider.threat;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
  * @author felipemorais2013
  */
-public class Date extends Field{
-    LocalDate beginDate;
-    LocalDate endDate;
+public class Date extends Field implements Comparable<Date>{
+    private LocalDate beginDate;
+    
+    private LocalDate endDate;
+    
+    private ArrayList<PC> pcs;
 
-    public Date() {
-        this.beginDate = null;
+    public Date(LocalDate begDate) {
+        this.beginDate = begDate;
         this.endDate = null;
+        this.pcs = new ArrayList<PC>();
+    }
+
+    public void insertPC(PC pc)
+    {
+        pcs.add(pc);
+    }
+    
+    public ArrayList<PC> getPcs() {
+        return pcs;
+    }
+
+    public void setPcs(ArrayList<PC> pcs) {
+        this.pcs = pcs;
     }
 
     public LocalDate getBeginDate() {
@@ -34,6 +52,15 @@ public class Date extends Field{
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public int compareTo(Date d) {
+        if(d.getBeginDate() == beginDate)
+        {
+            return 0;
+        }
+        return -1;
     }
     
     

@@ -10,13 +10,23 @@ package insider.threat;
  * @author daniel
  */
 public class DataManager {
-    private LogTree tree;
+    private Tree<User> tree;
 
     public DataManager() {
+        Node<User> root= new Node<User>(null);
+        tree = new Tree<User>(root);
     }
     
     //public User getUser(String id)
     //{
         //return tree.search()zz
     //}
+
+    public Tree<User> getTree() {
+        return tree;
+    }
+
+    public void setTree(Tree<User> tree) {
+        this.tree = tree;
+    }
 }

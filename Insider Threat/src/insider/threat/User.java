@@ -10,7 +10,7 @@ package insider.threat;
  * @author felipemorais2013
  * @author Daniel Henrique Ferreira Gomes
  */
-public class User extends Field{
+public class User extends Field implements Comparable<User>{
     private String id;
     
     private String name;
@@ -20,6 +20,8 @@ public class User extends Field{
     private String email;
     
     private String role;
+    
+    private Tree<Date> dates;
 
     public User(String id, String name, String domain, String email, String role) {
         this.id = id;
@@ -27,6 +29,21 @@ public class User extends Field{
         this.domain = domain;
         this.email = email;
         this.role = role;
+        Node<Date> root = new Node<Date>(null);
+        this.dates = new Tree<Date>(root);
+    }
+
+    public void insert(Date date){
+        Node<Date>key = new Node<Date>(date);
+        dates.insert(key);
+    }
+    
+    public Tree<Date> getDates() {
+        return dates;
+    }
+
+    public void setDates(Tree<Date> dates) {
+        this.dates = dates;
     }
 
     public String getId() {
@@ -68,5 +85,14 @@ public class User extends Field{
     public void setRole(String role) {
         this.role = role;
     }
+    @Override
+    public int compareTo(User other) {
+        if(this.id.equals(other.getId()))
+        {
+            return 0;
+        }        
+        return -1;
+    }
+
 
 }

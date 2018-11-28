@@ -25,6 +25,38 @@ public class Tree<T> {
         this.root = root;
     }
     
+    public Node<T> search(T s){
+        Node<T> aux = root.getSon();
+        while(aux != null)
+        {
+            if (aux.getValue() instanceof User)
+            {
+                if ( ((User) aux.getValue()).compareTo((User) s) == 0)
+                {
+                    return aux;
+                }
+                else if (aux.getBrother() == null)
+                {
+                    return aux;
+                }
+                aux = aux.getBrother();
+            }
+            if (aux.getValue() instanceof Date)
+            {
+                if ( ((Date) aux.getValue()).compareTo((Date) s) == 0)
+                {
+                    return aux;
+                }
+                else if (aux.getBrother() == null)
+                {
+                    return aux;
+                }
+                aux = aux.getBrother();
+            }
+        }
+        return null;
+    }
+    
     public void insert(Node<T> key){
         Node<T> aux = root.getSon();
         if(aux == null)
@@ -33,7 +65,27 @@ public class Tree<T> {
         }
         else
         {
-            while(aux != null){
+            //while(aux != null){
+            if (key.getValue() instanceof User)
+            {
+                while( aux.getBrother() != null){
+                    aux = aux.getBrother();
+                }
+                aux.setBrother(key);
+                //Node<T> n = new Node<T>((T)date);
+                //User user = (User)brother.getValue();
+                //brother.setSon(n);
+                return;
+            }
+            else if (key.getValue() instanceof Date)
+            {
+                Node<Date> s = (Node<Date>) search(key.getValue());
+                if (s.getValue().compareTo((Date)key.getValue()) == -1 )
+                {
+                    s.setBrother((Node<Date>) key);
+                }
+            }
+                /*
                 try
                 {
                     if(aux.getValue().getClass() == key.getValue().getClass() )
@@ -55,8 +107,8 @@ public class Tree<T> {
                 }
                 catch(Exception ex){
                     aux = aux.getSon();
-                }
-            }
+                }*/
+            //}
         }
         
     }

@@ -13,11 +13,21 @@ public class Node<T> {
     private T value;
     private Node<T> brother;
     private Node<T> son;
+    private int[] histogram;
 
     public Node(T value) {
         this.value = value;
         this.brother = null;
         this.son = null;
+        this.histogram = new int[24];
+    }
+
+    public int[] getHistogram() {
+        return histogram;
+    }
+
+    public void setHistogram(int[] histogram) {
+        this.histogram = histogram;
     }
 
     public T getValue() {
