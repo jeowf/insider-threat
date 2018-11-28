@@ -29,6 +29,7 @@ public class Tree<T> {
         Node<T> aux = root.getSon();
         while(aux != null)
         {
+            /*
             if (aux.getValue() instanceof User)
             {
                 if ( ((User) aux.getValue()).compareTo((User) s) == 0)
@@ -40,7 +41,7 @@ public class Tree<T> {
                     return aux;
                 }
                 aux = aux.getBrother();
-            }
+            }*/
             if (aux.getValue() instanceof Date)
             {
                 if ( ((Date) aux.getValue()).compareTo((Date) s) == 0)
@@ -66,6 +67,7 @@ public class Tree<T> {
         else
         {
             //while(aux != null){
+            /*
             if (key.getValue() instanceof User)
             {
                 while( aux.getBrother() != null){
@@ -76,8 +78,9 @@ public class Tree<T> {
                 //User user = (User)brother.getValue();
                 //brother.setSon(n);
                 return;
-            }
-            else if (key.getValue() instanceof Date)
+            }*/
+            //else 
+            if (key.getValue() instanceof Date)
             {
                 Node<Date> s = (Node<Date>) search(key.getValue());
                 if (s.getValue().compareTo((Date)key.getValue()) == -1 )

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -95,6 +96,7 @@ public class TesteLeitura {
         DataManager dmanager = new DataManager();
         Node<User> root = dmanager.getTree().getRoot();
         Tree<User> tree = dmanager.getTree();
+        HashMap<String ,User> hashMap = dmanager.getHashMap();
         boolean primeira_linha;
         try {
 
@@ -113,8 +115,10 @@ public class TesteLeitura {
                     String role = usuarios[4];
                     
                     User user = new User(id, name, domain, email, role);
-                    Node<User> userNode = new Node<User>(user);
-                    tree.insert(userNode);
+                    System.out.println(user.getId());
+                    dmanager.insertUser(user);
+                    //Node<User> userNode = new Node<User>(user);
+                    //tree.insert(userNode);
                 }
                 else
                 {
@@ -136,12 +140,20 @@ public class TesteLeitura {
                             String date = teste[1];
                             String user = teste[2];
                             String[] splitDate = date.split(" ");
+                            
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
                             LocalDate dateTime= LocalDate.parse(splitDate[0], formatter);
                             Date d = new Date(dateTime);
-                            User newUser =  new User(user.split("/")[1], null, null, null, null);
-                            Node<User> nuser = tree.search(newUser);
-                            nuser.getValue().insert(d);
+                            
+                            User searchUser = hashMap.get(user.split("/")[1]);
+                            System.out.println(searchUser.getId());
+                            if (searchUser != null)
+                            {
+                                searchUser.insert(d);
+                            }
+                            //User newUser =  new User(user.split("/")[1], null, null, null, null);
+                            //Node<User> nuser = tree.search(newUser);
+                            //nuser.getValue().insert(d);
                         }
                         else
                         {
@@ -150,7 +162,6 @@ public class TesteLeitura {
                     }
                 }
             //}
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -164,7 +175,7 @@ public class TesteLeitura {
                 }
             }
         }
-        tree.print();
+        //tree.print();
 
     }
     

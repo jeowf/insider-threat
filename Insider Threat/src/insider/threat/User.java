@@ -5,6 +5,9 @@
  */
 package insider.threat;
 
+import java.time.LocalDate;
+import java.util.HashMap;
+
 /**
  *
  * @author felipemorais2013
@@ -22,6 +25,8 @@ public class User extends Field implements Comparable<User>{
     private String role;
     
     private Tree<Date> dates;
+    
+    private HashMap<LocalDate, Date> datesmap;
 
     public User(String id, String name, String domain, String email, String role) {
         this.id = id;
@@ -29,13 +34,26 @@ public class User extends Field implements Comparable<User>{
         this.domain = domain;
         this.email = email;
         this.role = role;
-        Node<Date> root = new Node<Date>(null);
-        this.dates = new Tree<Date>(root);
+        Node<Date> root = new Node<>(null);
+        this.dates = new Tree<>(root);
+        this.datesmap = new HashMap<LocalDate, Date>();
+    }
+
+    public HashMap<LocalDate, Date> getDatesmap() {
+        return datesmap;
+    }
+
+    public void setDatesmap(HashMap<LocalDate, Date> datesmap) {
+        this.datesmap = datesmap;
     }
 
     public void insert(Date date){
-        Node<Date>key = new Node<Date>(date);
-        dates.insert(key);
+        //Node<Date>key = new Node<Date>(date);
+        //dates.insert(key);
+        if(datesmap.get(date.getBeginDate()) == null)
+        {
+            datesmap.put(date.getBeginDate(), date);
+        }
     }
     
     public Tree<Date> getDates() {
