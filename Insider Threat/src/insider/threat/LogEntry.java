@@ -11,4 +11,27 @@ package insider.threat;
  */
 public class LogEntry {
     
+    public enum Action{
+        SEARCH,
+        INSERT
+    }
+    
+    private Action action;
+    private String[] fields;
+    
+    public LogEntry(Action action, String[] fields){
+        this.action = action;
+        this.fields = fields;
+    }
+
+    public Action getAction() {
+        return action;
+    }
+
+    public String[] getFields() {
+        return fields;
+    }
+    
+    
+    
 }

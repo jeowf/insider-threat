@@ -13,7 +13,7 @@ public abstract class Field {
     private int[] histogram;
 
     public Field() {
-        histogram = new int[24];
+        histogram = new int[24];            
     }
 
     public int[] getHistogram() {
@@ -23,5 +23,9 @@ public abstract class Field {
     public void setHistogram(int[] histogram) {
         this.histogram = histogram;
     }
+    
+    public void increment(int index, int value){
         
+    }
+    
 }
