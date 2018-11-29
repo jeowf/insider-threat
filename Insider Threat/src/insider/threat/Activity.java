@@ -5,35 +5,25 @@
  */
 package insider.threat;
 
+import java.time.LocalTime;
+
 /**
  *
  * @author daniel
  */
-public class Activity {
-    private String type;
-    
-    private int[] histogram;
+public abstract class Activity extends Field{
+    private String id;
 
-    public Activity(String type) {
-        this.type = type;
+    public Activity(String id) {
+        this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getId() {
+        return id;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public int[] getHistogram() {
-        return histogram;
-    }
-
-    public void setHistogram(int[] histogram) {
-        this.histogram = histogram;
-    }
-    
-    
-    
 }

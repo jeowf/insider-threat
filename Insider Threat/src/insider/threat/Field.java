@@ -13,7 +13,7 @@ public abstract class Field {
     private int[] histogram;
 
     public Field() {
-        histogram = new int[24];
+        this.histogram = new int[24];
     }
 
     public int[] getHistogram() {
@@ -22,6 +22,20 @@ public abstract class Field {
 
     public void setHistogram(int[] histogram) {
         this.histogram = histogram;
+    }
+    
+    public void addtoHistogram(String time)
+    {
+        int pos = Integer.parseInt(time.split(":")[0]);
+        if(getHistogram()[pos] == 0)
+        {
+            getHistogram()[pos]=1;
+        }
+        else
+        {
+            getHistogram()[pos]+=1;
+        }
+        
     }
         
 }

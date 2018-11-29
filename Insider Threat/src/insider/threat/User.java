@@ -24,7 +24,7 @@ public class User extends Field implements Comparable<User>{
     
     private String role;
     
-    private Tree<Date> dates;
+    //private Tree<Date> dates;
     
     private HashMap<LocalDate, Date> datesmap;
 
@@ -35,7 +35,7 @@ public class User extends Field implements Comparable<User>{
         this.email = email;
         this.role = role;
         Node<Date> root = new Node<>(null);
-        this.dates = new Tree<>(root);
+        //this.dates = new Tree<>(root);
         this.datesmap = new HashMap<LocalDate, Date>();
     }
 
@@ -47,21 +47,21 @@ public class User extends Field implements Comparable<User>{
         this.datesmap = datesmap;
     }
 
-    public void insert(Date date){
+    public void insert(Date date, PC pc, Activity act, String time){
         //Node<Date>key = new Node<Date>(date);
         //dates.insert(key);
         if(datesmap.get(date.getBeginDate()) == null)
         {
+            date.insertPC(pc, act, time);
+            addtoHistogram(time);
             datesmap.put(date.getBeginDate(), date);
         }
-    }
-    
-    public Tree<Date> getDates() {
-        return dates;
-    }
-
-    public void setDates(Tree<Date> dates) {
-        this.dates = dates;
+        else
+        {
+            datesmap.get(date.getBeginDate()).insertPC(pc, act, time);
+            addtoHistogram(time);
+            //datesmap.put(date.getBeginDate(), date);
+        }
     }
 
     public String getId() {

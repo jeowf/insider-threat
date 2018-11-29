@@ -12,12 +12,12 @@ import java.util.HashMap;
  * @author daniel
  */
 public class DataManager {
-    private Tree<User> tree;
+    //private Tree<User> tree;
     private HashMap<String, User> hashmap;
 
     public DataManager() {
-        Node<User> root= new Node<User>(null);
-        tree = new Tree<User>(root);
+        //Node<User> root= new Node<User>(null);
+        //tree = new Tree<User>(root);
         hashmap = new HashMap<String, User>();
     }
     
@@ -39,13 +39,5 @@ public class DataManager {
     //}
     public void setHashMap(HashMap<String, User> hashMap) {
         this.hashmap = hashMap;
-    }
-
-    public Tree<User> getTree() {
-        return tree;
-    }
-
-    public void setTree(Tree<User> tree) {
-        this.tree = tree;
     }
 }

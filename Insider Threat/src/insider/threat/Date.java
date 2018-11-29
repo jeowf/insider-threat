@@ -7,6 +7,7 @@ package insider.threat;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -17,25 +18,41 @@ public class Date extends Field implements Comparable<Date>{
     
     private LocalDate endDate;
     
-    private ArrayList<PC> pcs;
+    //private ArrayList<PC> pcs;
+    
+    private HashMap<String, PC> pcsMap;
 
     public Date(LocalDate begDate) {
         this.beginDate = begDate;
         this.endDate = null;
-        this.pcs = new ArrayList<PC>();
+        //this.pcs = new ArrayList<PC>();
+        this.pcsMap = new HashMap<String, PC>();
     }
 
-    public void insertPC(PC pc)
+    public void insertPC(PC pc, Activity act, String time )
     {
-        pcs.add(pc);
-    }
-    
-    public ArrayList<PC> getPcs() {
-        return pcs;
+        //pcs.add(pc);
+        if (pcsMap.get(pc.getId()) == null)
+        {
+            pc.insert(act, time);
+            addtoHistogram(time);
+            pcsMap.put(pc.getId(), pc);
+        }
+        else{
+            pcsMap.get(pc.getId()).insert(act, time);
+            addtoHistogram(time);
+            //pcsMap.put(pc.getId(), pc);
+            
+        }
+        pcsMap.put(pc.getId(), pc);
     }
 
-    public void setPcs(ArrayList<PC> pcs) {
-        this.pcs = pcs;
+    public HashMap<String, PC> getPcsMap() {
+        return pcsMap;
+    }
+
+    public void setPcsMap(HashMap<String, PC> pcsMap) {
+        this.pcsMap = pcsMap;
     }
 
     public LocalDate getBeginDate() {
