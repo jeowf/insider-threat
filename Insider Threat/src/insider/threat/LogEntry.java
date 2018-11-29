@@ -11,27 +11,40 @@ package insider.threat;
  */
 public class LogEntry {
     
-    public enum Action{
-        SEARCH,
-        INSERT
+    enum LogType{
+        USER,
+        LOGON,
+        DEVICE,
+        HTTP
+        
     }
-    
-    private Action action;
+    private LogType logType;
     private String[] fields;
     
-    public LogEntry(Action action, String[] fields){
-        this.action = action;
+    public LogEntry(LogType logType, String[] fields){
+        this.logType = logType;
         this.fields = fields;
-    }
-
-    public Action getAction() {
-        return action;
     }
 
     public String[] getFields() {
         return fields;
     }
     
+    public LogType getLogType(){
+        return logType;
+    }
+    
+    public static LogType toLogType(int i){
+        if (i==0)
+            return LogType.USER;
+        if (i==1)
+            return LogType.LOGON;
+        if (i==2)
+            return LogType.DEVICE;
+        if (i==3)
+            return LogType.HTTP;
+        return null;
+    }
     
     
 }

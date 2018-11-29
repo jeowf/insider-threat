@@ -19,19 +19,21 @@ public class Main {
         // Lendo arquivo de preferencias
         String preferencesPath = "prefs.txt";
         
-        DataManager dm = new DataManager();
+        IOManager ioManager;
+        DataManager dataManager = new DataManager();
         
         if (args.length == 1)
             preferencesPath = args[0];
         
         try {
-            IOManager io = new IOManager(dm, preferencesPath);
+            ioManager = new IOManager(preferencesPath);
+            ioManager.read(dataManager);
         } catch (IOException ex) {
             System.out.println("Problems to open the necessary files. Please, check the README.md!");
             System.exit(0);
         }
         
-        
+
         
         
     }

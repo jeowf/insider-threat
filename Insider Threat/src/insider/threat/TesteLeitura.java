@@ -94,8 +94,8 @@ public class TesteLeitura {
         String linha = "";
         String csvDivisor = ",";
         DataManager dmanager = new DataManager();
-        Node<User> root = dmanager.getTree().getRoot();
-        Tree<User> tree = dmanager.getTree();
+        //Node<User> root = dmanager.getTree().getRoot();
+        //Tree<User> tree = dmanager.getTree();
         HashMap<String ,User> hashMap = dmanager.getHashMap();
         boolean primeira_linha;
         try {
@@ -115,7 +115,7 @@ public class TesteLeitura {
                     String role = usuarios[4];
                     
                     User user = new User(id, name, domain, email, role);
-                    System.out.println(user.getId());
+                    //System.out.println(user.getId());
                     dmanager.insertUser(user);
                     //Node<User> userNode = new Node<User>(user);
                     //tree.insert(userNode);
@@ -128,39 +128,139 @@ public class TesteLeitura {
             String file = files.get(1);
             //for (String file: files)
             //{
-                br = new BufferedReader(new FileReader(file));
-                primeira_linha = true;
-                while ((linha = br.readLine()) != null) {
-                    if("data/logon.csv".equals(file))
+            br = new BufferedReader(new FileReader(file));
+            primeira_linha = true;
+            while ((linha = br.readLine()) != null) {
+                if("data/logon.csv".equals(file))
+                {
+                    if (false == primeira_linha)
                     {
-                        if (false == primeira_linha)
+                        String[] teste = linha.split(csvDivisor);
+                        String id = teste[0];
+                        String date = teste[1];
+                        String user = teste[2];
+                        String pc = teste[3].split("-")[1];
+                        String value = teste[4];
+                        String[] splitDate = date.split(" ");
+
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                        LocalDate dateTime= LocalDate.parse(splitDate[0], formatter);
+                        Date d = new Date(dateTime);
+
+                        User searchUser = hashMap.get(user.split("/")[1]);
+                        //System.out.println(searchUser.getId());
+                        if (searchUser != null)
                         {
-                            String[] teste = linha.split(csvDivisor);
-                            String id = teste[0];
-                            String date = teste[1];
-                            String user = teste[2];
-                            String[] splitDate = date.split(" ");
-                            
-                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-                            LocalDate dateTime= LocalDate.parse(splitDate[0], formatter);
-                            Date d = new Date(dateTime);
-                            
-                            User searchUser = hashMap.get(user.split("/")[1]);
-                            System.out.println(searchUser.getId());
-                            if (searchUser != null)
-                            {
-                                searchUser.insert(d);
-                            }
-                            //User newUser =  new User(user.split("/")[1], null, null, null, null);
-                            //Node<User> nuser = tree.search(newUser);
-                            //nuser.getValue().insert(d);
+                            PC newPc= new PC(pc);
+
+                            LogonActivity activity = new LogonActivity(id, value);
+                            //activity.addtoHistogram(splitDate[1]);
+                            //newPc.insert(activity, splitDate[1]);
+                            //d.insertPC(newPc);
+                            searchUser.insert(d, newPc, activity, splitDate[1]);
                         }
-                        else
-                        {
-                            primeira_linha = false;
-                        }
+
+                        //User newUser =  new User(user.split("/")[1], null, null, null, null);
+                        //Node<User> nuser = tree.search(newUser);
+                        //nuser.getValue().insert(d);
+                    }
+                    else
+                    {
+                        primeira_linha = false;
                     }
                 }
+            }
+            file = files.get(2);
+            //for (String file: files)
+            //{
+            br = new BufferedReader(new FileReader(file));
+            primeira_linha = true;
+            while ((linha = br.readLine()) != null) {
+                if("data/device.csv".equals(file))
+                {
+                    if (false == primeira_linha)
+                    {
+                        String[] teste = linha.split(csvDivisor);
+                        String id = teste[0];
+                        String date = teste[1];
+                        String user = teste[2];
+                        String pc = teste[3].split("-")[1];
+                        String value = teste[4];
+                        String[] splitDate = date.split(" ");
+
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                        LocalDate dateTime= LocalDate.parse(splitDate[0], formatter);
+                        Date d = new Date(dateTime);
+
+                        User searchUser = hashMap.get(user.split("/")[1]);
+                        //System.out.println(searchUser.getId());
+                        if (searchUser != null)
+                        {
+                            PC newPc= new PC(pc);
+
+                            DeviceActivity activity = new DeviceActivity(id, value);
+                            //activity.addtoHistogram(splitDate[1]);
+                            //newPc.insert(activity, splitDate[1]);
+                            //d.insertPC(newPc);
+                            searchUser.insert(d, newPc, activity, splitDate[1]);
+                        }
+
+                        //User newUser =  new User(user.split("/")[1], null, null, null, null);
+                        //Node<User> nuser = tree.search(newUser);
+                        //nuser.getValue().insert(d);
+                    }
+                    else
+                    {
+                        primeira_linha = false;
+                    }
+                }
+            }
+            file = files.get(3);
+            //for (String file: files)
+            //{
+            br = new BufferedReader(new FileReader(file));
+            primeira_linha = true;
+            while ((linha = br.readLine()) != null) {
+                if("data/http.csv".equals(file))
+                {
+                    if (false == primeira_linha)
+                    {
+                        String[] teste = linha.split(csvDivisor);
+                        String id = teste[0];
+                        String date = teste[1];
+                        String user = teste[2];
+                        String pc = teste[3].split("-")[1];
+                        String value = teste[4];
+                        String[] splitDate = date.split(" ");
+
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                        LocalDate dateTime= LocalDate.parse(splitDate[0], formatter);
+                        Date d = new Date(dateTime);
+
+                        User searchUser = hashMap.get(user.split("/")[1]);
+                        //System.out.println(searchUser.getId());
+                        if (searchUser != null)
+                        {
+                            PC newPc= new PC(pc);
+
+                            HTTPActivity activity = new HTTPActivity(id, value);
+                            //activity.addtoHistogram(splitDate[1]);
+                            //newPc.insert(activity, splitDate[1]);
+                            //d.insertPC(newPc);
+                            searchUser.insert(d, newPc, activity, splitDate[1]);
+                        }
+
+                        //User newUser =  new User(user.split("/")[1], null, null, null, null);
+                        //Node<User> nuser = tree.search(newUser);
+                        //nuser.getValue().insert(d);
+                    }
+                    else
+                    {
+                        primeira_linha = false;
+                    }
+                }
+            }
+            System.out.println("Teste");
             //}
         } catch (FileNotFoundException e) {
             e.printStackTrace();

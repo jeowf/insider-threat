@@ -5,18 +5,37 @@
  */
 package insider.threat;
 
+import java.util.HashMap;
+
 /**
  *
  * @author daniel
  */
-public class PC {
+public class PC extends Field{
     private String id;
     
-    private Activity[] activities;
+    private HashMap<String, Activity> activities;
 
-    public PC(String id, Activity[] activities) {
+    public PC(String id) {
         this.id = id;
-        this.activities = activities;
+        this.activities = new HashMap<String, Activity>();
+    }
+    
+    public void insert (Activity act, String time)
+    {
+        if(act instanceof LogonActivity)
+        {
+            if(activities.get(act.getId()) == null)
+            {
+                act.addtoHistogram(time);
+                activities.put(act.getId(), act);
+            }
+            else
+            {
+                Activity activity = activities.get(act.getId());
+                activity.addtoHistogram(time);
+            }
+        }
     }
 
     public String getId() {
@@ -27,13 +46,13 @@ public class PC {
         this.id = id;
     }
 
-    public Activity[] getActivities() {
+    public HashMap<String, Activity> getActivities() {
         return activities;
     }
 
-    public void setActivities(Activity[] activities) {
+    public void setActivities(HashMap<String, Activity> activities) {
         this.activities = activities;
     }
-    
+
     
 }

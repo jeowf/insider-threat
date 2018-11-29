@@ -27,14 +27,14 @@ public class IOManager {
         OUT
     };
     
-    private DataManager dataManager;
+    private static final String CSV_DIVISOR= ",";
+    
     private BufferedReader preferences;
     private String[] files;
             
-    public IOManager(DataManager dataManager, String preferencesFile) throws FileNotFoundException, IOException {
+    public IOManager(String preferencesFile) throws FileNotFoundException, IOException {
         files = new String[5];
         
-        this.dataManager = dataManager;
         preferences = new BufferedReader(new FileReader(preferencesFile));
         
         String line = "";
@@ -73,18 +73,31 @@ public class IOManager {
         return -1;
     }
     
-    public LogEntry readUser() throws FileNotFoundException, IOException{
+    public void read(DataManager dataManager) throws IOException{
+        for (int i = 0; i < 4; i++) {
+            read(dataManager,i);
+        }
+    }
+    
+    private void read(DataManager dataManager, int type) throws FileNotFoundException, IOException{
         
-        BufferedReader br;
         boolean first_line = true;
         String line = "";
-        br = new BufferedReader(new FileReader(files[0]));
+        
+        BufferedReader br = new BufferedReader(new FileReader(files[type]));
         
         while ( (line = br.readLine()) != null ){
-            
+            if (first_line){
+                first_line = false;
+            } else {
+                String[] fields = line.split(CSV_DIVISOR);            
+                LogEntry le = new LogEntry( LogEntry.toLogType(type), fields );
+                dataManager.processLog(le);
+            }
         }
         
-        return null;
+        br.close();
+        
     }
     
 //    public BufferedReader getIn_file() {
