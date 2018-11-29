@@ -148,7 +148,7 @@ public class DataManager {
     
     public double euclideanDistance(double[] ha, double[] hm)
     {
-        int sum = 0;
+        double sum = 0;
         for(int i = 0; i< ha.length;++i)
         {
             sum += (ha[i] - hm[i]) * (ha[i] - hm[i]);
