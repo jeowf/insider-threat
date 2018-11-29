@@ -24,8 +24,8 @@ public class Main {
         IOManager ioManager;
         DataManager dataManager = new DataManager();
         
-        LocalDate beginDate = LocalDate.of(2010, 1, 4);
-        LocalDate endDate = LocalDate.of(2010, 12, 5);
+        LocalDate beginDate = null;//LocalDate.of(2010, 1, 4);
+        LocalDate endDate = null; //LocalDate.of(2010, 12, 5);
         
         if (args.length == 1)
             preferencesPath = args[0];
@@ -33,7 +33,7 @@ public class Main {
         try {
             ioManager = new IOManager(preferencesPath);
             ioManager.read(dataManager, beginDate, endDate);
-            dataManager.generateAnalyze("Security", beginDate, endDate);
+            ioManager.writeOutput( dataManager.generateAnalyze("Foreman", beginDate, endDate));
         } catch (IOException ex) {
             System.out.println("Problems to open the necessary files. Please, check the README.md!");
             System.exit(0);
