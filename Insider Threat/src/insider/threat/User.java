@@ -24,20 +24,48 @@ public class User extends Field implements Comparable<User>{
     
     private String role;
     
-    //private Tree<Date> dates;
-    
-    private HashMap<LocalDate, Date> datesmap;
+    //private HashMap<LocalDate, Date> datesmap;
+    private Date date;
 
-    public User(String id, String name, String domain, String email, String role) {
+    public User(String id, String name, String domain, String email, String role, Date date) {
         this.id = id;
         this.name = name;
         this.domain = domain;
         this.email = email;
         this.role = role;
-        //this.dates = new Tree<>(root);
-        this.datesmap = new HashMap<LocalDate, Date>();
+        this.date = date;
+        //this.datesmap = new HashMap<LocalDate, Date>();
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    
+    public void insert(Date newDate, PC pc, Activity act, String time){
+        //Node<Date>key = new Node<Date>(date);
+        //dates.insert(key);
+        if(date.getBeginDate() == null && date.getEndDate() == null)
+        {
+            date.insertPC(pc, act, time);
+            addtoHistogram(time);
+        }
+        else if(date.getBeginDate() != null && date.getEndDate() != null)
+        {
+            if(date.getBeginDate().compareTo(newDate.getBeginDate()) <= 0 &&
+               date.getEndDate().compareTo(newDate.getBeginDate()) >= 0)
+            {
+                //System.out.println(date.getEndDate().compareTo(newDate.getBeginDate()));
+                date.insertPC(pc, act, time);
+                addtoHistogram(time);
+            }
+        }
+    }
+    
+/*
     public HashMap<LocalDate, Date> getDatesmap() {
         return datesmap;
     }
@@ -61,7 +89,7 @@ public class User extends Field implements Comparable<User>{
             addtoHistogram(time);
             //datesmap.put(date.getBeginDate(), date);
         }
-    }
+    }*/
 
     public String getId() {
         return id;

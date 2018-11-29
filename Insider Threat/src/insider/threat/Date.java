@@ -22,9 +22,9 @@ public class Date extends Field implements Comparable<Date>{
     
     private HashMap<String, PC> pcsMap;
 
-    public Date(LocalDate begDate) {
+    public Date(LocalDate begDate, LocalDate endDate) {
         this.beginDate = begDate;
-        this.endDate = null;
+        this.endDate = endDate;
         //this.pcs = new ArrayList<PC>();
         this.pcsMap = new HashMap<String, PC>();
     }
@@ -44,7 +44,7 @@ public class Date extends Field implements Comparable<Date>{
             //pcsMap.put(pc.getId(), pc);
             
         }
-        pcsMap.put(pc.getId(), pc);
+        //pcsMap.put(pc.getId(), pc);
     }
 
     public HashMap<String, PC> getPcsMap() {

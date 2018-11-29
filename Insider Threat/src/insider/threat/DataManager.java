@@ -8,7 +8,15 @@ package insider.threat;
 import insider.threat.LogEntry.LogType;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.NavigableMap;
+import java.util.TreeMap;
+import javafx.util.Pair;
 
 /**
  *
@@ -35,7 +43,7 @@ public class DataManager {
         }
     }
 
-    public void processLog(LogEntry log) {
+    public void processLog(LogEntry log, LocalDate beginDate, LocalDate endDate) {
         String[] fields = log.getFields();
 
         if (log.getLogType() == LogType.USER) {
@@ -44,8 +52,9 @@ public class DataManager {
             String domain = fields[2];
             String email = fields[3];
             String role = fields[4];
+            Date date = new Date(beginDate, endDate);
 
-            User user = new User(id, name, domain, email, role);
+            User user = new User(id, name, domain, email, role, date);
             insertUser(user);
 
         } else if (log.getLogType() == LogType.LOGON) {
@@ -58,7 +67,7 @@ public class DataManager {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
             LocalDate dateTime = LocalDate.parse(splitDate[0], formatter);
-            Date d = new Date(dateTime);
+            Date d = new Date(dateTime, dateTime);
 
             User searchUser = hashmap.get(user.split("/")[1]);
 
@@ -77,7 +86,7 @@ public class DataManager {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
             LocalDate dateTime = LocalDate.parse(splitDate[0], formatter);
-            Date d = new Date(dateTime);
+            Date d = new Date(dateTime, dateTime);
 
             User searchUser = hashmap.get(user.split("/")[1]);
 
@@ -97,7 +106,7 @@ public class DataManager {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
             LocalDate dateTime = LocalDate.parse(splitDate[0], formatter);
-            Date d = new Date(dateTime);
+            Date d = new Date(dateTime, dateTime);
 
             User searchUser = hashmap.get(user.split("/")[1]);
             
@@ -112,6 +121,92 @@ public class DataManager {
 
     }
 
+    public User createMeanUser(String role, LocalDate beginDate, LocalDate endDate)
+    {
+        int[] mean = new int[24];
+        Arrays.fill(mean, 0);
+        int count = 0;
+        for (Map.Entry<String,User> pair : hashmap.entrySet()) {
+            if(pair.getValue().getRole().equals(role))
+            {
+                count++;
+                for (int i = 0; i< pair.getValue().getHistogram().length; ++i)
+                {
+                    mean[i] += pair.getValue().getHistogram()[i];
+                }
+            }
+        }
+        for(int i = 0; i < 24; i++){
+            mean[i] = (mean[i]/count);
+        }
+        Date date = new Date(beginDate, endDate);
+        User meanUser = new User("MEAN", "MEAN", "MEAN", "MEAN", role, date);
+        meanUser.setHistogram(mean);
+        insertUser(meanUser); 
+        return meanUser;
+    }
+    
+    public double euclideanDistance(double[] ha, double[] hm)
+    {
+        int sum = 0;
+        for(int i = 0; i< ha.length;++i)
+        {
+            sum += (ha[i] - hm[i]) * (ha[i] - hm[i]);
+        }
+        return Math.sqrt(sum);
+    }
+    
+    public double[] normalize(int[] array){
+        double[] newArray = new double[24];
+        Arrays.fill(newArray, 0);
+        double max = array[0];
+        for(int i = 1; i< array.length; ++i)
+        {
+            if(array[i]> max)
+            {
+                max = (double)array[i];
+            }
+        }
+        if(max != 0)
+        {
+            for(int i = 0; i< array.length; ++i)
+            {
+                newArray[i] = (double)array[i]/(double)max;
+            }
+        }
+        return newArray;
+    }
+    
+    /**
+     * based on https://howtodoinjava.com/sort/java-sort-map-by-values/
+     * @param role
+     * @param beginDate
+     * @param endDate
+     * @return
+     */
+    public LinkedHashMap<String, Double> generateAnalyze(String role, LocalDate beginDate, LocalDate endDate)
+    {
+        User meanUser = createMeanUser(role, beginDate, endDate);
+        Map<String, Double> treemap = new HashMap<String, Double>();
+        for (Map.Entry<String,User> pair : hashmap.entrySet()) {
+            if(pair.getValue().getRole().equals(role) && !pair.getValue().getName().equals("MEAN"))
+            {
+                double[] ha = normalize(pair.getValue().getHistogram());
+                double[] hm = normalize(meanUser.getHistogram());
+                double distance = euclideanDistance(ha, hm);
+                treemap.put(pair.getValue().getName(),distance);
+            }
+        }
+        Map<String, Double> unSortedMap = treemap;
+        LinkedHashMap<String, Double> reverseSortedMap = new LinkedHashMap<>();
+        unSortedMap.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+            .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
+        
+        System.out.println("Reverse Sorted Map   : " + reverseSortedMap);
+        return reverseSortedMap;        
+    }
     //public User getUser(String id)
     //{
     //return tree.search()zz

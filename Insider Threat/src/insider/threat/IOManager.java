@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  *
@@ -73,17 +74,21 @@ public class IOManager {
         return -1;
     }
     
-    public void read(DataManager dataManager) throws IOException{
+    public void read(DataManager dataManager, LocalDate beginDate, LocalDate endDate) throws IOException{
         for (int i = 0; i < 4; i++) {
-            read(dataManager,i);
+            read(dataManager,i, beginDate, endDate);
         }
     }
     
-    private void read(DataManager dataManager, int type) throws FileNotFoundException, IOException{
+    private void read(DataManager dataManager, int type, LocalDate beginDate, LocalDate endDate) throws FileNotFoundException, IOException{
         
         boolean first_line = true;
-        String line = "";
-        
+        String line = "";/*
+        if(type == 3)
+        {
+            first_line = false;
+        }
+        */
         BufferedReader br = new BufferedReader(new FileReader(files[type]));
         
         while ( (line = br.readLine()) != null ){
@@ -92,7 +97,7 @@ public class IOManager {
             } else {
                 String[] fields = line.split(CSV_DIVISOR);            
                 LogEntry le = new LogEntry( LogEntry.toLogType(type), fields );
-                dataManager.processLog(le);
+                dataManager.processLog(le, beginDate, endDate);
             }
         }
         

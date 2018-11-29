@@ -23,18 +23,19 @@ public class PC extends Field{
     
     public void insert (Activity act, String time)
     {
-        if(act instanceof LogonActivity)
+        if(activities.get(act.getId()) == null)
         {
-            if(activities.get(act.getId()) == null)
-            {
-                act.addtoHistogram(time);
-                activities.put(act.getId(), act);
-            }
-            else
-            {
-                Activity activity = activities.get(act.getId());
-                activity.addtoHistogram(time);
-            }
+            addtoHistogram(time);
+            act.addtoHistogram(time);
+            //System.out.println(act.getId());
+            activities.put(act.getId(), act);
+        }
+        else
+        {
+            System.out.println("'"+activities.get(act.getId()).getId());
+            addtoHistogram(time);
+            Activity activity = activities.get(act.getId());
+            activity.addtoHistogram(time);
         }
     }
 
