@@ -34,7 +34,6 @@ public class User extends Field implements Comparable<User>{
         this.domain = domain;
         this.email = email;
         this.role = role;
-        Node<Date> root = new Node<>(null);
         //this.dates = new Tree<>(root);
         this.datesmap = new HashMap<LocalDate, Date>();
     }
