@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.jfree.ui.RefineryUtilities;
 
 /**
  *
@@ -17,6 +18,14 @@ import java.util.logging.Logger;
  */
 public class Main {
     public static void main(String[] args) {
+        
+        LineChart chart = new LineChart(
+         "School Vs Years" ,
+         "Numer of Schools vs years");
+
+      chart.pack( );
+      RefineryUtilities.centerFrameOnScreen( chart );
+      chart.setVisible( true );
         
         // Lendo arquivo de preferencias
         String preferencesPath = "prefs.txt";
