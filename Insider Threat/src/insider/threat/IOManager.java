@@ -59,7 +59,6 @@ public class IOManager {
                 } else if (index == -2) {
                     String[] dt = fields[1].split("-");
                     
-                    System.out.println(fields[1]);
                     
                     if (dt.length == 3) {
                         int year = Integer.parseInt(dt[0]);
@@ -75,14 +74,12 @@ public class IOManager {
 
                 } else if (index == -3) {
                     String[] dt = fields[1].split("-");
-                    System.out.println(fields[1]);
                     if (dt.length == 3) {
                         int year = Integer.parseInt(dt[0]);
                         int month = Integer.parseInt(dt[1]);
                         int day = Integer.parseInt(dt[2]);
 
-                        endDate = LocalDate.of(year, month, day);
-                        System.out.println(endDate);
+                        endDate = LocalDate.of(year, month, day);;
                     } else {
                         endDate = null;
                     }

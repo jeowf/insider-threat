@@ -46,7 +46,8 @@ public class Main {
             ch = new CommandHandler(ioManager, dataManager);
             
             Scanner scan = new Scanner(System.in);
-
+            System.out.println("All files have been read correctly.");
+            System.out.println("Insert your commands. Check all the command in README.md");
             String command = "";
             
             while (!command.equals("quit")) {
