@@ -18,6 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.util.Pair;
 
 /**
  *
@@ -117,13 +118,29 @@ public class IOManager {
 
     }
 
-    public void writeOutput(LinkedHashMap<String, Double> out) {
+    public void writeOutput(Pair<LinkedHashMap<User, Double>,LinkedHashMap<User, Double>> out) {
 
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(files[toIndex("out")]), "utf-8"))) {
             
-            for (Map.Entry<String, Double> pair : out.entrySet()) {
-                 writer.write(pair.getKey() + " : " + pair.getValue() + " \n");
+            if(out.getKey().size() != 0){
+                for (Map.Entry<User, Double> pair : out.getKey().entrySet()) {
+                     writer.write(pair.getKey() + "Distance : " + pair.getValue() + " \n");
+                }
+            }
+            else
+            {
+                writer.write("No insider threat\n");                
+            }
+            writer.write("-----------------------------\n");
+            if(out.getValue().size() != 0){
+                for (Map.Entry<User, Double> pair : out.getValue().entrySet()) {
+                     writer.write(pair.getKey() + "Distance : " + pair.getValue() + " \n");
+                }
+            }
+            else
+            {
+                writer.write("No User\n");
             }
         } catch (IOException ex) {
             Logger.getLogger(IOManager.class.getName()).log(Level.SEVERE, null, ex);

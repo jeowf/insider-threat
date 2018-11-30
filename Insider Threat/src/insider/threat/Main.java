@@ -8,9 +8,11 @@ package insider.threat;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.util.Pair;
 import org.jfree.ui.RefineryUtilities;
 
 /**
@@ -29,8 +31,8 @@ public class Main {
         IOManager ioManager;
         DataManager dataManager = new DataManager();
 
-        LocalDate beginDate = null;//LocalDate.of(2010, 1, 4);
-        LocalDate endDate = null;//LocalDate.of(2010, 12, 5);
+        LocalDate beginDate = LocalDate.of(2010, 1, 4);
+        LocalDate endDate = LocalDate.of(2010, 12, 5);
 
         if (args.length == 1) {
             preferencesPath = args[0];
@@ -39,7 +41,8 @@ public class Main {
         try {
             ioManager = new IOManager(preferencesPath);
             ioManager.read(dataManager, beginDate, endDate);
-            ioManager.writeOutput(dataManager.generateAnalyze("Foreman", beginDate, endDate));
+            Pair<LinkedHashMap<User, Double>,LinkedHashMap<User, Double>> save = dataManager.generateAnalyze("Foreman", beginDate, endDate);
+            ioManager.writeOutput(save);
         } catch (IOException ex) {
             System.out.println("Problems to open the necessary files. Please, check the README.md!");
             System.exit(0);

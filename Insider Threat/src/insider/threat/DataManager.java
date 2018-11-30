@@ -178,19 +178,17 @@ public class DataManager {
         }
         return newArray;
     }
-    public LinkedHashMap<String, Double> detectOutliers(LinkedHashMap<String, Double> list, int[] hist){
-        //int[] temp = hist.clone();
-        //Arrays.sort(temp);
-        //double[] mean = normalize(temp);
-        //ArrayList<String> key = new ArrayList<>(list.keySet());
+
+    public LinkedHashMap<User, Double> 
+        detectOutliers(LinkedHashMap<User, Double> list, int[] hist){
+        
         ArrayList<Double> value = new ArrayList<>(list.values());
-        //int i = (int)floor((mean.length+1.0)/4.0);
         double q3 = value.get((int)floor((value.size()+1.0)/4.0));
         double q1 = value.get((int)floor(((value.size()+1.0)*3)/4.0));
         
         double iqr = q3-q1;
-        LinkedHashMap<String, Double> nlist= new LinkedHashMap<String, Double>();
-        for (Map.Entry<String,Double> pair : list.entrySet()) {
+        LinkedHashMap<User, Double> nlist= new LinkedHashMap<User, Double>();
+        for (Map.Entry<User,Double> pair : list.entrySet()) {
             double teste = q3+ (1.5*iqr);
             if(pair.getValue() > q3+ (1.5*iqr) ){
                 nlist.put(pair.getKey(), pair.getValue());
@@ -206,33 +204,35 @@ public class DataManager {
      * @param endDate
      * @return
      */
-    public LinkedHashMap<String, Double> generateAnalyze(String role, LocalDate beginDate, LocalDate endDate)
+    public Pair<LinkedHashMap<User, Double>,LinkedHashMap<User, Double>> 
+        generateAnalyze(String role, LocalDate beginDate, LocalDate endDate)
     {
         User meanUser = createMeanUser(role, beginDate, endDate);
-        Map<String, Double> treemap = new HashMap<String, Double>();
+        Map<User, Double> treemap = new HashMap<User, Double>();
         for (Map.Entry<String,User> pair : hashmap.entrySet()) {
             if(pair.getValue().getRole().equals(role) && !pair.getValue().getName().equals("MEAN"))
             {
                 double[] ha = normalize(pair.getValue().getHistogram());
                 double[] hm = normalize(meanUser.getHistogram());
                 double distance = euclideanDistance(ha, hm);
-                treemap.put(pair.getValue().getName(),distance);
+                treemap.put(pair.getValue(),distance);
             }
         }
-        Map<String, Double> unSortedMap = treemap;
-        LinkedHashMap<String, Double> reverseSortedMap = new LinkedHashMap<>();
+        Map<User, Double> unSortedMap = treemap;
+        LinkedHashMap<User, Double> reverseSortedMap = new LinkedHashMap<>();
         unSortedMap.entrySet()
             .stream()
             .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
             .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
-        LinkedHashMap<String, Double> outliersSortedMap = detectOutliers(reverseSortedMap, meanUser.getHistogram());
-        System.out.println("Reverse Sorted Map   : " + outliersSortedMap);
-        return reverseSortedMap;        
+        
+        LinkedHashMap<User, Double> outliersSortedMap = detectOutliers(reverseSortedMap, meanUser.getHistogram());
+        
+        Pair<LinkedHashMap<User, Double>,LinkedHashMap<User, Double>> ret =
+                new Pair<LinkedHashMap<User, Double>,LinkedHashMap<User, Double>>(outliersSortedMap, reverseSortedMap);
+        
+        return ret;        
     }
-    //public User getUser(String id)
-    //{
-    //return tree.search()zz
-    //}
+
     public void setHashMap(HashMap<String, User> hashMap) {
         this.hashmap = hashMap;
     }
