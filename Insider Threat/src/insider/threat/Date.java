@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
- * @author felipemorais2013
+ * Representação da janela de tempo
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class Date extends Field implements Comparable<Date>{
     private LocalDate beginDate;
@@ -23,7 +24,7 @@ public class Date extends Field implements Comparable<Date>{
     private HashMap<String, PC> pcsMap;
 
     /**
-     *
+     * Construtor
      * @param begDate
      * @param endDate
      */
@@ -35,7 +36,7 @@ public class Date extends Field implements Comparable<Date>{
     }
 
     /**
-     *
+     * Insere um dispositivo como filho dessa janela de tempo
      * @param pc
      * @param act
      * @param time
@@ -59,7 +60,7 @@ public class Date extends Field implements Comparable<Date>{
     }
 
     /**
-     *
+     * Acessa os dipositivos associados a essa data
      * @return
      */
     public HashMap<String, PC> getPcsMap() {
@@ -67,7 +68,7 @@ public class Date extends Field implements Comparable<Date>{
     }
 
     /**
-     *
+     * Altera os dispositivos associados a essa data
      * @param pcsMap
      */
     public void setPcsMap(HashMap<String, PC> pcsMap) {
@@ -75,7 +76,7 @@ public class Date extends Field implements Comparable<Date>{
     }
 
     /**
-     *
+     * Acessa a data de ínício
      * @return
      */
     public LocalDate getBeginDate() {
@@ -83,7 +84,7 @@ public class Date extends Field implements Comparable<Date>{
     }
 
     /**
-     *
+     * Altera a data de início
      * @param beginDate
      */
     public void setBeginDate(LocalDate beginDate) {
@@ -91,7 +92,7 @@ public class Date extends Field implements Comparable<Date>{
     }
 
     /**
-     *
+     * Acessa a data final
      * @return
      */
     public LocalDate getEndDate() {
@@ -99,7 +100,7 @@ public class Date extends Field implements Comparable<Date>{
     }
 
     /**
-     *
+     * Altera a data final
      * @param endDate
      */
     public void setEndDate(LocalDate endDate) {

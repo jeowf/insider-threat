@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 /**
- *
- * @author felipemorais2013
+ * Sua instância é passa como parâmetro em métodos do DataManager
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class LogEntry {
     
@@ -22,7 +18,7 @@ public class LogEntry {
     private String[] fields;
     
     /**
-     *
+     * Construtor
      * @param logType
      * @param fields
      */
@@ -32,7 +28,7 @@ public class LogEntry {
     }
 
     /**
-     *
+     * Retorna os campos do log
      * @return
      */
     public String[] getFields() {
@@ -40,7 +36,7 @@ public class LogEntry {
     }
     
     /**
-     *
+     * Retorna o tipo de log
      * @return
      */
     public LogType getLogType(){
@@ -48,7 +44,7 @@ public class LogEntry {
     }
     
     /**
-     *
+     * Converte um índice em um tipo de log
      * @param i
      * @return
      */

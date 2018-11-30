@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 import java.util.LinkedHashMap;
@@ -10,8 +5,9 @@ import java.util.Map;
 import javafx.util.Pair;
 
 /**
- *
- * @author morai
+ * Controla e executa os comandos informados pelo usuário
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class CommandHandler {
 
@@ -32,7 +28,7 @@ public class CommandHandler {
     private Level currentLevel;
 
     /**
-     *
+     * Construtor
      * @param ioManager
      * @param dataManager
      */
@@ -44,7 +40,7 @@ public class CommandHandler {
     }
 
     /**
-     *
+     * Retorna o gerenciador de entrada e saída
      * @return
      */
     public IOManager getIoManager() {
@@ -52,7 +48,7 @@ public class CommandHandler {
     }
 
     /**
-     *
+     * Altera o gerenciador de entrada e saída
      * @return
      */
     public DataManager getDataManager() {
@@ -60,19 +56,9 @@ public class CommandHandler {
     }
 
     /**
-     *
+     * Exibe as informações do contexto atual do usuário
      */
     public void info() {
-        /*
-        if (currentLevel == Level.ROOT) {
-            System.out.print("$ ");
-        } else if (currentLevel == Level.USER) {
-            System.out.print("User:" + user.getId() + "$ ");
-        } else if (currentLevel == Level.PC) {
-            System.out.print("User: " + user.getId() + " PC: " + pc.getId() + "$ ");
-        } else if (currentLevel == Level.ACTIVITY) {
-            System.out.print("User: " + user.getId() + " PC: " + pc.getId() + " Activity: " + act.getId() + "$ ");
-        }*/
 
         if (currentLevel == Level.ROOT) {
             System.out.print("$ ");
@@ -86,7 +72,7 @@ public class CommandHandler {
     }
 
     /**
-     *
+     * Executa o comando contido na string passada por parâmetro
      * @param s
      */
     public void execute(String s) {
@@ -233,6 +219,9 @@ public class CommandHandler {
 
     }
 
+    /**
+     * Lista os elementos filhos ao nó atual
+     */
     private void listItems() {
         if (currentLevel == Level.ROOT) {
             for (Map.Entry<String, User> pair : dataManager.getHashMap().entrySet()) {
@@ -254,6 +243,11 @@ public class CommandHandler {
         }
     }
 
+    /**
+     * Plota o histograma entre dois usuários
+     * @param user1
+     * @param user2
+     */
     private void showHistogram(User user1, User user2) {
 
         double[] histogram1 = dataManager.normalize(user1.getHistogram());
@@ -271,6 +265,9 @@ public class CommandHandler {
         chart.plot();
     }
 
+    /**
+     * Plota o histograma referente ao contexto atual
+     */
     private void showHistogram() {
 
         String type = "";

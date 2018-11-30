@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 /**
- *
- * @author daniel
+ * Representação de atividades HTTP
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class HTTPActivity extends Activity{
     private String url;
 
     /**
-     *
+     * Construtor
      * @param id
      * @param utl
      */
@@ -23,7 +19,7 @@ public class HTTPActivity extends Activity{
     }
 
     /**
-     *
+     * Acessa o URL
      * @return
      */
     public String getUrl() {
@@ -31,7 +27,7 @@ public class HTTPActivity extends Activity{
     }
 
     /**
-     *
+     * Altera o URL
      * @param url
      */
     public void setUrl(String url) {

@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 import java.util.HashMap;
 
 /**
- *
- * @author daniel
+ * Representa os dispositivos
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class PC extends Field{
     private String id;
@@ -17,7 +13,7 @@ public class PC extends Field{
     private HashMap<String, Activity> activities;
 
     /**
-     *
+     * Construtor
      * @param id
      */
     public PC(String id) {
@@ -26,7 +22,7 @@ public class PC extends Field{
     }
     
     /**
-     *
+     * Insere uma atividade
      * @param act
      * @param time
      */
@@ -49,7 +45,7 @@ public class PC extends Field{
     }
 
     /**
-     *
+     * Recupera Id
      * @return
      */
     public String getId() {
@@ -57,7 +53,7 @@ public class PC extends Field{
     }
 
     /**
-     *
+     * Altera o id
      * @param id
      */
     public void setId(String id) {
@@ -65,7 +61,7 @@ public class PC extends Field{
     }
 
     /**
-     *
+     * Recupera as atividades filhas desse dispositivo
      * @return
      */
     public HashMap<String, Activity> getActivities() {
@@ -73,7 +69,7 @@ public class PC extends Field{
     }
 
     /**
-     *
+     * Altera as atividades filhas desse dispositivo
      * @param activities
      */
     public void setActivities(HashMap<String, Activity> activities) {

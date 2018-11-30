@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 
 /**
- *
+ * Representa os usuários
  * @author Felipe Morais da Silva
  * @author Daniel Henrique Ferreira Gomes
  */

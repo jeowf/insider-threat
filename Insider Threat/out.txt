@@ -1,85 +1,87 @@
-No insider threat
+Id: CIB0489, Name: Cameron I Burns, Role: Foreman Distance : 2.19437047065392 
+Id: NWT0708, Name: Noah W Tillman, Role: Foreman Distance : 2.0802974253307625 
+Id: ICB0779, Name: Ishmael C Ballard, Role: Foreman Distance : 2.0636555545189874 
 -----------------------------
-Id: NLD0701, Name: Nicolas L Drake Distance : 2.013438438683407 
-Id: CIB0489, Name: Cameron I Burns Distance : 1.94618385024318 
-Id: ICB0779, Name: Ishmael C Ballard Distance : 1.917714603864545 
-Id: MCR0314, Name: Merrill C Rivers Distance : 1.8487714040918695 
-Id: ONQ0625, Name: Omar N Quinn Distance : 1.8437653853818805 
-Id: SWM0768, Name: Scott W Mcleod Distance : 1.8002657387580165 
-Id: MCC0851, Name: Mannix C Cain Distance : 1.7989290080466673 
-Id: WFH0909, Name: William F Harris Distance : 1.7798309778797134 
-Id: XXD0650, Name: Xerxes X Davenport Distance : 1.757260811548739 
-Id: CWG0305, Name: Chancellor W Gilliam Distance : 1.731292387473454 
-Id: IJG0454, Name: Isaiah J Guthrie Distance : 1.7296513203273531 
-Id: CRF0074, Name: Cairo R Figueroa Distance : 1.7201877145917601 
-Id: NWT0708, Name: Noah W Tillman Distance : 1.716572497631814 
-Id: PVH0124, Name: Phelan V Heath Distance : 1.708622797746005 
-Id: MTC0538, Name: Michael T Cobb Distance : 1.7029610439978857 
-Id: VJD0704, Name: Vance J David Distance : 1.6958992595532492 
-Id: PRR0982, Name: Paki R Riddle Distance : 1.6874832260479589 
-Id: ONB0177, Name: Octavius N Ballard Distance : 1.6850438089796533 
-Id: KBC0788, Name: Kane B Compton Distance : 1.6842390548794888 
-Id: RLC0442, Name: Ross L Chen Distance : 1.6792830519167337 
-Id: RSG0385, Name: Robert S Grimes Distance : 1.675213296969567 
-Id: MKN0234, Name: Mark K Nixon Distance : 1.6751660478266077 
-Id: GJH0384, Name: Garth J Hodge Distance : 1.666842762684692 
-Id: EEK0031, Name: Emerson E Knowles Distance : 1.6645293148320082 
-Id: KCH0987, Name: Knox C Hughes Distance : 1.6617059465384179 
-Id: TQC0249, Name: Thor Q Castaneda Distance : 1.6535839252490128 
-Id: RRF0245, Name: Rashad R Fitzgerald Distance : 1.6526369905567257 
-Id: CTF0687, Name: Caesar T Finch Distance : 1.6466672655103998 
-Id: NSD0763, Name: Nicholas S Duran Distance : 1.64478317664698 
-Id: GKC0919, Name: Gannon K Cantrell Distance : 1.642558067509351 
-Id: LJU0036, Name: Lamar J Underwood Distance : 1.6171792749750327 
-Id: VKB0605, Name: Vincent K Baker Distance : 1.610374794098522 
-Id: DAW0123, Name: Daquan A Waller Distance : 1.5857815258572574 
-Id: KYH0920, Name: Kennedy Y Hill Distance : 1.5814024992903928 
-Id: JGS0274, Name: Jesse G Sims Distance : 1.57399747548977 
-Id: JMA0875, Name: Jarrod M Alvarado Distance : 1.5688412870351307 
-Id: CNS0950, Name: Clinton N Short Distance : 1.5622132324061075 
-Id: SJH0588, Name: Sylvester J Holloway Distance : 1.5463972945484972 
-Id: JFA0081, Name: Jonas F Anderson Distance : 1.544862085337264 
-Id: OUS0565, Name: Orson U Sharpe Distance : 1.5315764353589656 
-Id: DSS0112, Name: Dale S Shepherd Distance : 1.5238591547001488 
-Id: CGC0877, Name: Colby G Chaney Distance : 1.4999008859600904 
-Id: DCB0462, Name: Dale C Ballard Distance : 1.4929162582165376 
-Id: RAC0282, Name: Randall A Campbell Distance : 1.4902072677439349 
-Id: NJS0448, Name: Nissim J Slater Distance : 1.4882646684012963 
-Id: SSC0047, Name: Sawyer S Cooke Distance : 1.4858761699124734 
-Id: WWC0894, Name: Walter W Cantrell Distance : 1.4852786376902305 
-Id: WPH0764, Name: Wyoming P Holden Distance : 1.472121243715256 
-Id: MST0883, Name: Mohammad S Tyler Distance : 1.4717914532597447 
-Id: CDE0193, Name: Chadwick D Evans Distance : 1.4520558183663124 
-Id: CPM0959, Name: Carlos P Moore Distance : 1.43089183537535 
-Id: CRJ0934, Name: Cedric R Jackson Distance : 1.4290985460989885 
-Id: DBB0235, Name: Drake B Booth Distance : 1.4210038474048339 
-Id: ANC0012, Name: Alvin N Cruz Distance : 1.3743772110818708 
-Id: JMM0759, Name: Jarrod M Martin Distance : 1.3544820089404845 
-Id: EJS0513, Name: Elliott J Sanchez Distance : 1.354397738258063 
-Id: ORW0580, Name: Orlando R Waller Distance : 1.3499885395497118 
-Id: DDW0643, Name: David D Wynn Distance : 1.3496222635074293 
-Id: THL0671, Name: Talon H Lindsay Distance : 1.3408104670272003 
-Id: CPS0559, Name: Carson P Stone Distance : 1.33313650981927 
-Id: JLL0930, Name: Jamal L Leonard Distance : 1.2859835605578267 
-Id: CSR0189, Name: Colton S Rodriguez Distance : 1.2797755963692183 
-Id: BRB0908, Name: Burke R Barber Distance : 1.2609263690455708 
-Id: BCG0303, Name: Barry C Goff Distance : 1.2543888814111266 
-Id: MJM0228, Name: Moses J Miller Distance : 1.2488545889306226 
-Id: CBR0104, Name: Carl B Rodriguez Distance : 1.2051012696130659 
-Id: KNJ0633, Name: Kermit N Joyce Distance : 1.2028573436163106 
-Id: CDF0585, Name: Connor D Fernandez Distance : 1.1866927062472932 
-Id: YQW0689, Name: Yardley Q Woods Distance : 1.1811549539908401 
-Id: CBR0208, Name: Connor B Robles Distance : 1.1794845532533933 
-Id: BMR0412, Name: Bradley M Robles Distance : 1.161784686434403 
-Id: CAM0975, Name: Cooper A Montoya Distance : 1.1505056818010668 
-Id: BXY0648, Name: Benjamin X Young Distance : 1.1004381531391463 
-Id: BTH0358, Name: Bevis T Harper Distance : 1.0482624975737016 
-Id: AFF0760, Name: Aubrey F Foster Distance : 1.0428161876136406 
-Id: CCB0496, Name: Camden C Blankenship Distance : 1.039914884226598 
-Id: BCM0558, Name: Branden C Moses Distance : 1.0096052332780672 
-Id: BAK0787, Name: Beau A Key Distance : 1.0012311394714504 
-Id: CAR0015, Name: Cole A Roman Distance : 0.9719859737170067 
-Id: ALW0694, Name: Alden L Warren Distance : 0.9312029873595998 
-Id: AGB0091, Name: Aubrey G Barrett Distance : 0.8962077198840442 
-Id: BFO0438, Name: Brandon F Osborne Distance : 0.7297781646436424 
-Id: AID0577, Name: Amery I Delacruz Distance : 0.6905063467501302 
+Id: CIB0489, Name: Cameron I Burns, Role: Foreman Distance : 2.19437047065392 
+Id: NWT0708, Name: Noah W Tillman, Role: Foreman Distance : 2.0802974253307625 
+Id: ICB0779, Name: Ishmael C Ballard, Role: Foreman Distance : 2.0636555545189874 
+Id: DAW0123, Name: Daquan A Waller, Role: Foreman Distance : 1.9384389395922819 
+Id: NLD0701, Name: Nicolas L Drake, Role: Foreman Distance : 1.8794752413933373 
+Id: OUS0565, Name: Orson U Sharpe, Role: Foreman Distance : 1.763948661150421 
+Id: EEK0031, Name: Emerson E Knowles, Role: Foreman Distance : 1.6955758109646248 
+Id: MST0883, Name: Mohammad S Tyler, Role: Foreman Distance : 1.6945091835462327 
+Id: MCR0314, Name: Merrill C Rivers, Role: Foreman Distance : 1.6329134851321014 
+Id: ONQ0625, Name: Omar N Quinn, Role: Foreman Distance : 1.6162966286971243 
+Id: VJD0704, Name: Vance J David, Role: Foreman Distance : 1.593048502642805 
+Id: SJH0588, Name: Sylvester J Holloway, Role: Foreman Distance : 1.5829835178953269 
+Id: GJH0384, Name: Garth J Hodge, Role: Foreman Distance : 1.5805031734894148 
+Id: ONB0177, Name: Octavius N Ballard, Role: Foreman Distance : 1.5466814134386362 
+Id: SWM0768, Name: Scott W Mcleod, Role: Foreman Distance : 1.5423579915396544 
+Id: IJG0454, Name: Isaiah J Guthrie, Role: Foreman Distance : 1.5303760169656324 
+Id: GKC0919, Name: Gannon K Cantrell, Role: Foreman Distance : 1.4987978044229855 
+Id: TQC0249, Name: Thor Q Castaneda, Role: Foreman Distance : 1.4974041539616525 
+Id: BCG0303, Name: Barry C Goff, Role: Foreman Distance : 1.4945183332855332 
+Id: KBC0788, Name: Kane B Compton, Role: Foreman Distance : 1.4843563983989618 
+Id: XXD0650, Name: Xerxes X Davenport, Role: Foreman Distance : 1.4777337883553288 
+Id: WFH0909, Name: William F Harris, Role: Foreman Distance : 1.4749439414452188 
+Id: MCC0851, Name: Mannix C Cain, Role: Foreman Distance : 1.4709873204979755 
+Id: NSD0763, Name: Nicholas S Duran, Role: Foreman Distance : 1.4668905530229235 
+Id: DSS0112, Name: Dale S Shepherd, Role: Foreman Distance : 1.4653865928730336 
+Id: PVH0124, Name: Phelan V Heath, Role: Foreman Distance : 1.4532761043496272 
+Id: CTF0687, Name: Caesar T Finch, Role: Foreman Distance : 1.4507499352315327 
+Id: CGC0877, Name: Colby G Chaney, Role: Foreman Distance : 1.4495062567168557 
+Id: KCH0987, Name: Knox C Hughes, Role: Foreman Distance : 1.4488708749161643 
+Id: CWG0305, Name: Chancellor W Gilliam, Role: Foreman Distance : 1.442412709946901 
+Id: PRR0982, Name: Paki R Riddle, Role: Foreman Distance : 1.4382017134638312 
+Id: MKN0234, Name: Mark K Nixon, Role: Foreman Distance : 1.4339454063120627 
+Id: KYH0920, Name: Kennedy Y Hill, Role: Foreman Distance : 1.4275478624305147 
+Id: RSG0385, Name: Robert S Grimes, Role: Foreman Distance : 1.4275174146352745 
+Id: VKB0605, Name: Vincent K Baker, Role: Foreman Distance : 1.4230755211093715 
+Id: CRF0074, Name: Cairo R Figueroa, Role: Foreman Distance : 1.4141246301537473 
+Id: RRF0245, Name: Rashad R Fitzgerald, Role: Foreman Distance : 1.4032883012130062 
+Id: RLC0442, Name: Ross L Chen, Role: Foreman Distance : 1.402049709458961 
+Id: MTC0538, Name: Michael T Cobb, Role: Foreman Distance : 1.3785150115492486 
+Id: DCB0462, Name: Dale C Ballard, Role: Foreman Distance : 1.377996737118764 
+Id: CNS0950, Name: Clinton N Short, Role: Foreman Distance : 1.3733196745223748 
+Id: RAC0282, Name: Randall A Campbell, Role: Foreman Distance : 1.3731050984609405 
+Id: JFA0081, Name: Jonas F Anderson, Role: Foreman Distance : 1.3704535170372671 
+Id: JMA0875, Name: Jarrod M Alvarado, Role: Foreman Distance : 1.3465758333680338 
+Id: JMM0759, Name: Jarrod M Martin, Role: Foreman Distance : 1.3278616527559222 
+Id: EJS0513, Name: Elliott J Sanchez, Role: Foreman Distance : 1.321257261088928 
+Id: NJS0448, Name: Nissim J Slater, Role: Foreman Distance : 1.3133352734837602 
+Id: LJU0036, Name: Lamar J Underwood, Role: Foreman Distance : 1.3116678950068643 
+Id: CSR0189, Name: Colton S Rodriguez, Role: Foreman Distance : 1.2715829456188592 
+Id: DBB0235, Name: Drake B Booth, Role: Foreman Distance : 1.2658692988237186 
+Id: ANC0012, Name: Alvin N Cruz, Role: Foreman Distance : 1.2552106066263997 
+Id: SSC0047, Name: Sawyer S Cooke, Role: Foreman Distance : 1.2526450719203202 
+Id: WWC0894, Name: Walter W Cantrell, Role: Foreman Distance : 1.2473503831693602 
+Id: BRB0908, Name: Burke R Barber, Role: Foreman Distance : 1.2352124319736209 
+Id: CRJ0934, Name: Cedric R Jackson, Role: Foreman Distance : 1.2221202116497962 
+Id: JGS0274, Name: Jesse G Sims, Role: Foreman Distance : 1.2179460456389777 
+Id: THL0671, Name: Talon H Lindsay, Role: Foreman Distance : 1.2061486180949734 
+Id: WPH0764, Name: Wyoming P Holden, Role: Foreman Distance : 1.2037678523052662 
+Id: CDE0193, Name: Chadwick D Evans, Role: Foreman Distance : 1.1833412716065195 
+Id: BXY0648, Name: Benjamin X Young, Role: Foreman Distance : 1.1795343242759297 
+Id: JLL0930, Name: Jamal L Leonard, Role: Foreman Distance : 1.167240071956422 
+Id: CPS0559, Name: Carson P Stone, Role: Foreman Distance : 1.1557019621799909 
+Id: CAM0975, Name: Cooper A Montoya, Role: Foreman Distance : 1.1409191911968943 
+Id: CAR0015, Name: Cole A Roman, Role: Foreman Distance : 1.131235977799203 
+Id: ORW0580, Name: Orlando R Waller, Role: Foreman Distance : 1.1305231327959724 
+Id: MJM0228, Name: Moses J Miller, Role: Foreman Distance : 1.129606959312593 
+Id: CPM0959, Name: Carlos P Moore, Role: Foreman Distance : 1.1193497808753978 
+Id: KNJ0633, Name: Kermit N Joyce, Role: Foreman Distance : 1.109259069156401 
+Id: DDW0643, Name: David D Wynn, Role: Foreman Distance : 1.1063995470111707 
+Id: AFF0760, Name: Aubrey F Foster, Role: Foreman Distance : 1.0854776269360398 
+Id: BCM0558, Name: Branden C Moses, Role: Foreman Distance : 1.0689259637169197 
+Id: CDF0585, Name: Connor D Fernandez, Role: Foreman Distance : 1.0333686377329 
+Id: CBR0104, Name: Carl B Rodriguez, Role: Foreman Distance : 1.029130536290444 
+Id: BTH0358, Name: Bevis T Harper, Role: Foreman Distance : 0.976678306456423 
+Id: BMR0412, Name: Bradley M Robles, Role: Foreman Distance : 0.9750166583303297 
+Id: ALW0694, Name: Alden L Warren, Role: Foreman Distance : 0.9447366778867151 
+Id: CCB0496, Name: Camden C Blankenship, Role: Foreman Distance : 0.9367041775069257 
+Id: CBR0208, Name: Connor B Robles, Role: Foreman Distance : 0.9154659485264376 
+Id: YQW0689, Name: Yardley Q Woods, Role: Foreman Distance : 0.9112028124906222 
+Id: BAK0787, Name: Beau A Key, Role: Foreman Distance : 0.8740175212448031 
+Id: AGB0091, Name: Aubrey G Barrett, Role: Foreman Distance : 0.7596028820648315 
+Id: BFO0438, Name: Brandon F Osborne, Role: Foreman Distance : 0.7153070526633221 
+Id: AID0577, Name: Amery I Delacruz, Role: Foreman Distance : 0.4651004557810641 

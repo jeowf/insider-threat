@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 import java.time.LocalTime;
 
 /**
- *
- * @author daniel
+ * Generalização dos tipos de atividade
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public abstract class Activity extends Field{
     private String id;
 
     /**
-     *
+     * Construtor
      * @param id
      */
     public Activity(String id) {
@@ -23,7 +19,7 @@ public abstract class Activity extends Field{
     }
 
     /**
-     *
+     * Retorna o id
      * @return
      */
     public String getId() {
@@ -31,7 +27,7 @@ public abstract class Activity extends Field{
     }
 
     /**
-     *
+     * Altera o id
      * @param id
      */
     public void setId(String id) {

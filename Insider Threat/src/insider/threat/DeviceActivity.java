@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 /**
- *
- * @author daniel
+ * Representa a atividade de dispositivo
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class DeviceActivity extends Activity {
     private String value;
 
     /**
-     *
+     * Construtor
      * @param id
      * @param value
      */
@@ -23,7 +19,7 @@ public class DeviceActivity extends Activity {
     }
 
     /**
-     *
+     * Recebe o valor da atividade
      * @return
      */
     public String getValue() {
@@ -31,7 +27,7 @@ public class DeviceActivity extends Activity {
     }
 
     /**
-     *
+     * Altera o valor da atividade
      * @param value
      */
     public void setValue(String value) {

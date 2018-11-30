@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 import javax.swing.JFrame;
@@ -16,14 +11,15 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
- *
+ * Plot dos histogramas
  * Based on this: https://www.tutorialspoint.com/jfreechart/jfreechart_line_chart.htm
- * @author morai
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class LineChart extends JFrame{
     
     /**
-     *
+     * Construtor relativo ao histograma de um nó
      * @param title
      * @param chartTitle
      * @param histogram
@@ -45,7 +41,7 @@ public class LineChart extends JFrame{
     }
     
     /**
-     *
+     * Construtor relativo à dois usuários
      * @param title
      * @param chartTitle
      * @param histogram1
@@ -68,6 +64,11 @@ public class LineChart extends JFrame{
       setContentPane( chartPanel );
     }
     
+    /**
+     * Cria um conjunto de dados com base no histograma e usuário passado
+     * @param histogram
+     * @param user
+     */
     private DefaultCategoryDataset createDataset(double [] histogram, String user ) {
       DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
       
@@ -78,6 +79,13 @@ public class LineChart extends JFrame{
       return dataset;
     }
     
+    /**
+     * Cria um conjunto de dados relativos a dois usuários
+     * @param histogram1
+     * @param user1
+     * @param histogram2
+     * @param user2
+     */
     private DefaultCategoryDataset createDataset(double [] histogram1, String user1, 
                                                  double [] histogram2, String user2 ) {
       DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
@@ -91,7 +99,7 @@ public class LineChart extends JFrame{
    }
     
     /**
-     *
+     * Exibe o histograma
      */
     public void plot(){
         pack();

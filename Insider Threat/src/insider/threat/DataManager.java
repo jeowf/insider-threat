@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 import insider.threat.LogEntry.LogType;
@@ -22,7 +17,8 @@ import javafx.util.Pair;
 
 /**
  *
- * @author daniel
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class DataManager {
 
@@ -33,7 +29,7 @@ public class DataManager {
     private LocalDate endDate;
 
     /**
-     *
+     * Construtor
      */
     public DataManager() {
         //Node<User> root= new Node<User>(null);
@@ -42,7 +38,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Acessa os usuários
      * @return
      */
     public HashMap<String, User> getHashMap() {
@@ -50,7 +46,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Insere um usuário
      * @param user
      */
     public void insertUser(User user) {
@@ -60,7 +56,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Executa um log
      * @param log
      * @param beginDate
      * @param endDate
@@ -144,7 +140,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Cria o usuário médio
      * @param role
      * @param beginDate
      * @param endDate
@@ -176,7 +172,7 @@ public class DataManager {
     }
     
     /**
-     *
+     * Calcula a distância euclidiana
      * @param ha
      * @param hm
      * @return
@@ -192,7 +188,7 @@ public class DataManager {
     }
     
     /**
-     *
+     * Normaliza o histograma passado por parâmetro
      * @param array
      * @return
      */
@@ -218,7 +214,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Detecta os outliers
      * @param list
      * @param hist
      * @return
@@ -242,6 +238,7 @@ public class DataManager {
     }
     
     /**
+     * Gera a análise 
      * based on https://howtodoinjava.com/sort/java-sort-map-by-values/
      * @param role
      * @param beginDate
@@ -278,7 +275,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Altera a tabela de usuários
      * @param hashMap
      */
     public void setHashMap(HashMap<String, User> hashMap) {
@@ -291,7 +288,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Altera a data de início
      * @param beginDate
      */
     public void setBeginDate(LocalDate beginDate) {
@@ -299,7 +296,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Altera a data final
      * @param endDate
      */
     public void setEndDate(LocalDate endDate) {
@@ -307,7 +304,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Altera a tabela de usuário
      * @param hashmap
      */
     public void setHashmap(HashMap<String, User> hashmap) {
@@ -315,7 +312,7 @@ public class DataManager {
     }
 
     /**
-     *
+     * Recupera usuários
      * @return
      */
     public HashMap<String, User> getHashmap() {
@@ -323,15 +320,15 @@ public class DataManager {
     }
 
     /**
-     *
+     * Recupera a data de início
      * @return
      */
     public LocalDate getBeginDate() {
         return beginDate;
     }
 
-    /**
-     *
+    /** 
+     * Recupera a data final
      * @return
      */
     public LocalDate getEndDate() {

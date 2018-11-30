@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 /**
- *
+ * Generalização dos elementos do sistema
+ * @author Felipe Morais da Silva
  * @author Daniel Henrique Ferreira Gomes
  */
 public abstract class Field {
     private int[] histogram;
 
     /**
-     *
+     * Construtor
      */
     public Field() {
         this.histogram = new int[24];
@@ -21,7 +17,7 @@ public abstract class Field {
     }
 
     /**
-     *
+     * Acessa o histograma
      * @return
      */
     public int[] getHistogram() {
@@ -29,7 +25,7 @@ public abstract class Field {
     }
 
     /**
-     *
+     * Altera o histograma
      * @param histogram
      */
     public void setHistogram(int[] histogram) {
@@ -37,7 +33,7 @@ public abstract class Field {
     }
     
     /**
-     *
+     * Soma frequência ao histograma
      * @param time
      */
     public void addtoHistogram(String time)

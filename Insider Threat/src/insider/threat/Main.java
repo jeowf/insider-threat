@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 import java.io.IOException;
@@ -17,12 +12,13 @@ import org.jfree.ui.RefineryUtilities;
 
 /**
  *
- * @author morai
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class Main {
 
     /**
-     *
+     * Método principal
      * @param args
      */
     public static void main(String[] args) {
@@ -46,7 +42,6 @@ public class Main {
         try {
             ioManager = new IOManager(preferencesPath);
             ioManager.read(dataManager);
-            //ioManager.writeOutput(dataManager.generateAnalyze("Foreman", beginDate, endDate));
             ch = new CommandHandler(ioManager, dataManager);
             
             Scanner scan = new Scanner(System.in);

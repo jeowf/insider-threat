@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 import java.io.BufferedReader;
@@ -21,8 +16,9 @@ import java.util.logging.Logger;
 import javafx.util.Pair;
 
 /**
- *
- * @author daniel
+ * Gerenciador de leitura e escrita de arquivos
+ * @author Felipe Morais da Silva
+ * @author Daniel Henrique Ferreira Gomes
  */
 public class IOManager {
     //private BufferedReader in_file;
@@ -44,7 +40,7 @@ public class IOManager {
     private LocalDate endDate;
 
     /**
-     *
+     * Construtor. Já realiza a validação de prefs.txt
      * @param preferencesFile
      * @throws FileNotFoundException
      * @throws IOException
@@ -101,6 +97,10 @@ public class IOManager {
         }
     }
 
+    /**
+     * Converte uma string em índice
+     * @param dataManager
+     */
     private int toIndex(String fileType) {
 
         if (fileType.contains("users")) {
@@ -135,7 +135,7 @@ public class IOManager {
     }
 
     /**
-     *
+     * Lê os arquivos de log dentro do gerenciador de dados passado por parâmetro
      * @param dataManager
      * @throws IOException
      */
@@ -146,6 +146,11 @@ public class IOManager {
         }
     }
 
+    /**
+     * Lê os logs com base nos intervalos temporais estipulados
+     * @param dataManager
+     * @throws IOException
+     */
     private void read(DataManager dataManager, int type, LocalDate beginDate, LocalDate endDate) throws FileNotFoundException, IOException {
 
         boolean first_line = true;
@@ -170,7 +175,7 @@ public class IOManager {
     }
 
     /**
-     *
+     * Escreve o resultado da análise em um arquivo
      * @param out
      */
     public void writeOutput(Pair<LinkedHashMap<User, Double>, LinkedHashMap<User, Double>> out) {
@@ -201,26 +206,11 @@ public class IOManager {
     }
 
     /**
-     *
+     * Acessa o nome do arquivo de output
      * @return
      */
     public String getOutFile() {
         return files[toIndex("out")];
     }
 
-//    public BufferedReader getIn_file() {
-//        return in_file;
-//    }
-//
-//    public void setIn_file(BufferedReader in_file) {
-//        this.in_file = in_file;
-//    }
-//
-//    public BufferedReader getOut_file() {
-//        return out_file;
-//    }
-//
-//    public void setOut_file(BufferedReader out_file) {
-//        this.out_file = out_file;
-//    }
 }
