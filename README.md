@@ -6,6 +6,20 @@
  - Definir intervalo de data em prefs.txt
  - implementar tostrings das classes nó
 
+## Arquivo de configuração
+
+users: data/ldap.csv
+logons: data/logon.csv
+devices: data/device.csv
+https: data/http.csv
+out: out.txt
+
+
+begin : YYYY-MM-DD 
+end: YYYY-MM-DD
+
+begin: none
+end: none
 
 ## Comandos
 

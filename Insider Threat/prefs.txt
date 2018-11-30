@@ -3,3 +3,5 @@ logons: data/logon.csv
 devices: data/device.csv
 https: data/http.csv
 out: out.txt
+begin: 2010-1-4
+end: 2010-12-5

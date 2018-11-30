@@ -30,8 +30,8 @@ public class Main {
         DataManager dataManager = new DataManager();
         CommandHandler ch;
 
-        LocalDate beginDate = LocalDate.of(2010, 1, 4);
-        LocalDate endDate = LocalDate.of(2010, 12, 5);
+        LocalDate beginDate = null;//LocalDate.of(2010, 1, 4);
+        LocalDate endDate = null;//LocalDate.of(2010, 12, 5);
 
         if (args.length == 1) {
             preferencesPath = args[0];
@@ -41,7 +41,7 @@ public class Main {
 
         try {
             ioManager = new IOManager(preferencesPath);
-            ioManager.read(dataManager, beginDate, endDate);
+            ioManager.read(dataManager);
             //ioManager.writeOutput(dataManager.generateAnalyze("Foreman", beginDate, endDate));
             ch = new CommandHandler(ioManager, dataManager);
             

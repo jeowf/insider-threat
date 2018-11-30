@@ -5,7 +5,9 @@
  */
 package insider.threat;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
+import javafx.util.Pair;
 
 /**
  *
@@ -168,10 +170,10 @@ public class CommandHandler {
                 if (fields.length == 3) {
                     User user1 = dataManager.getHashMap().get(fields[1]);
                     User user2 = dataManager.getHashMap().get(fields[2]);
-                    
+
                     if (user1 == null) {
                         System.out.println("User " + fields[1] + " does not exit.");
-                    }else if (user2 == null){
+                    } else if (user2 == null) {
                         System.out.println("User " + fields[2] + " does not exit.");
                     } else {
                         currentLevel = Level.ROOT;
@@ -183,16 +185,26 @@ public class CommandHandler {
                 }
 
             } else if (fields[0].equals("analyse")) {
-                if (fields.length == 2) {
-                    
-                    ioManager.writeOutput(dataManager.generateAnalyze(fields[1], dataManager.getBeginDate(), dataManager.getEndDate()));
-                    
-                    System.out.println("The result of the analisys was wrote in " + ioManager.getOutFile());
+                if (fields.length >= 2) {
+                    String role = fields[1];
 
+                    for (int i = 2; i < fields.length; i++) {
+                        role += " " + fields[i];
+                    }
+                    
+                    try {
+                        
+                        Pair<LinkedHashMap<User, Double>, LinkedHashMap<User, Double>> p = dataManager.generateAnalyze(role, dataManager.getBeginDate(), dataManager.getEndDate());
+                        ioManager.writeOutput(p);
+
+                        System.out.println("The result of the analisys was wrote in " + ioManager.getOutFile());
+                    } catch (ArithmeticException e) {
+                        System.out.println(role + " does not exist.");
+                    }
                 } else {
                     System.out.println("Invalid number of arguments");
                 }
-                
+
             } else if (!fields[0].equals("quit")) {
                 System.out.println("Invalid command. read the README.md to more information.");
             }

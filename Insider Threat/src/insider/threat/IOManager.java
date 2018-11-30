@@ -40,6 +40,8 @@ public class IOManager {
 
     private BufferedReader preferences;
     private String[] files;
+    private LocalDate beginDate;
+    private LocalDate endDate;
 
     public IOManager(String preferencesFile) throws FileNotFoundException, IOException {
         files = new String[5];
@@ -51,12 +53,45 @@ public class IOManager {
         while ((line = preferences.readLine()) != null) {
             String[] fields = line.split(" ");
             int index = toIndex(fields[0]);
-            if (fields.length == 2 && index != -1) {
-                files[index] = fields[1];
+            if (fields.length == 2) {
+                if (index >= 0) {
+                    files[index] = fields[1];
+                } else if (index == -2) {
+                    String[] dt = fields[1].split("-");
+                    
+                    System.out.println(fields[1]);
+                    
+                    if (dt.length == 3) {
+                        int year = Integer.parseInt(dt[0]);
+                        int month = Integer.parseInt(dt[1]);
+                        int day = Integer.parseInt(dt[2]);
+
+                        beginDate = LocalDate.of(year, month, day);
+                    } else {
+                        beginDate = null;
+                    }
+                    
+                    
+
+                } else if (index == -3) {
+                    String[] dt = fields[1].split("-");
+                    System.out.println(fields[1]);
+                    if (dt.length == 3) {
+                        int year = Integer.parseInt(dt[0]);
+                        int month = Integer.parseInt(dt[1]);
+                        int day = Integer.parseInt(dt[2]);
+
+                        endDate = LocalDate.of(year, month, day);
+                        System.out.println(endDate);
+                    } else {
+                        endDate = null;
+                    }
+                }
+
             }
         }
 
-        for (int i = 0; i < files.length; i++) {
+        for (int i = 0; i < 5; i++) {
             if (files[i] == null) {
                 throw new IOException();
             }
@@ -85,10 +120,19 @@ public class IOManager {
             return 4;
         }
 
+        if (fileType.contains("begin")) {
+            return -2;
+        }
+
+        if (fileType.contains("end")) {
+            return -3;
+        }
+
         return -1;
     }
 
-    public void read(DataManager dataManager, LocalDate beginDate, LocalDate endDate) throws IOException {
+    public void read(DataManager dataManager) throws IOException {
+
         for (int i = 0; i < 4; i++) {
             read(dataManager, i, beginDate, endDate);
         }
@@ -98,8 +142,7 @@ public class IOManager {
 
         boolean first_line = true;
         String line = "";
-        if(type == 3)
-        {
+        if (type == 3) {
             first_line = false;
         }
         BufferedReader br = new BufferedReader(new FileReader(files[type]));
@@ -118,38 +161,34 @@ public class IOManager {
 
     }
 
-    public void writeOutput(Pair<LinkedHashMap<User, Double>,LinkedHashMap<User, Double>> out) {
+    public void writeOutput(Pair<LinkedHashMap<User, Double>, LinkedHashMap<User, Double>> out) {
 
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(files[toIndex("out")]), "utf-8"))) {
-            
-            if(out.getKey().size() != 0){
+
+            if (out.getKey().size() != 0) {
                 for (Map.Entry<User, Double> pair : out.getKey().entrySet()) {
-                     writer.write(pair.getKey() + "Distance : " + pair.getValue() + " \n");
+
+                    writer.write(pair.getKey() + " Distance : " + pair.getValue() + " \n");
                 }
-            }
-            else
-            {
-                writer.write("No insider threat\n");                
+            } else {
+                writer.write("No insider threat\n");
             }
             writer.write("-----------------------------\n");
-            if(out.getValue().size() != 0){
+            if (out.getValue().size() != 0) {
                 for (Map.Entry<User, Double> pair : out.getValue().entrySet()) {
-                     writer.write(pair.getKey() + "Distance : " + pair.getValue() + " \n");
+                    writer.write(pair.getKey() + " Distance : " + pair.getValue() + " \n");
                 }
-            }
-            else
-            {
+            } else {
                 writer.write("No User\n");
             }
         } catch (IOException ex) {
             Logger.getLogger(IOManager.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
     }
-    
-    public String getOutFile(){
+
+    public String getOutFile() {
         return files[toIndex("out")];
     }
 
