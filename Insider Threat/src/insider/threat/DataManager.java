@@ -6,6 +6,7 @@
 package insider.threat;
 
 import insider.threat.LogEntry.LogType;
+import static java.lang.Math.floor;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NavigableMap;
+import java.util.Set;
 import java.util.TreeMap;
 import javafx.util.Pair;
 
@@ -176,6 +178,26 @@ public class DataManager {
         }
         return newArray;
     }
+    public LinkedHashMap<String, Double> detectOutliers(LinkedHashMap<String, Double> list, int[] hist){
+        //int[] temp = hist.clone();
+        //Arrays.sort(temp);
+        //double[] mean = normalize(temp);
+        //ArrayList<String> key = new ArrayList<>(list.keySet());
+        ArrayList<Double> value = new ArrayList<>(list.values());
+        //int i = (int)floor((mean.length+1.0)/4.0);
+        double q3 = value.get((int)floor((value.size()+1.0)/4.0));
+        double q1 = value.get((int)floor(((value.size()+1.0)*3)/4.0));
+        
+        double iqr = q3-q1;
+        LinkedHashMap<String, Double> nlist= new LinkedHashMap<String, Double>();
+        for (Map.Entry<String,Double> pair : list.entrySet()) {
+            double teste = q3+ (1.5*iqr);
+            if(pair.getValue() > q3+ (1.5*iqr) ){
+                nlist.put(pair.getKey(), pair.getValue());
+            }
+        }
+        return nlist;     
+    }
     
     /**
      * based on https://howtodoinjava.com/sort/java-sort-map-by-values/
@@ -203,8 +225,8 @@ public class DataManager {
             .stream()
             .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
             .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
-        
-        System.out.println("Reverse Sorted Map   : " + reverseSortedMap);
+        LinkedHashMap<String, Double> outliersSortedMap = detectOutliers(reverseSortedMap, meanUser.getHistogram());
+        System.out.println("Reverse Sorted Map   : " + outliersSortedMap);
         return reverseSortedMap;        
     }
     //public User getUser(String id)
