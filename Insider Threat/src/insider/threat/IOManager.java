@@ -131,6 +131,10 @@ public class IOManager {
 
         
     }
+    
+    public String getOutFile(){
+        return files[toIndex("out")];
+    }
 
 //    public BufferedReader getIn_file() {
 //        return in_file;

@@ -28,6 +28,9 @@ public class DataManager {
 
     //private Tree<User> tree;
     private HashMap<String, User> hashmap;
+    
+    private LocalDate beginDate;
+    private LocalDate endDate;
 
     public DataManager() {
         //Node<User> root= new Node<User>(null);
@@ -226,7 +229,7 @@ public class DataManager {
             .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
             .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
         LinkedHashMap<String, Double> outliersSortedMap = detectOutliers(reverseSortedMap, meanUser.getHistogram());
-        System.out.println("Reverse Sorted Map   : " + outliersSortedMap);
+        //System.out.println("Reverse Sorted Map   : " + outliersSortedMap);
         return reverseSortedMap;        
     }
     //public User getUser(String id)
@@ -235,5 +238,34 @@ public class DataManager {
     //}
     public void setHashMap(HashMap<String, User> hashMap) {
         this.hashmap = hashMap;
+    }
+    
+    public String toString(){
+        int size = hashmap.size();
+        return "Users: " + size;
+    }
+
+    public void setBeginDate(LocalDate beginDate) {
+        this.beginDate = beginDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public void setHashmap(HashMap<String, User> hashmap) {
+        this.hashmap = hashmap;
+    }
+
+    public HashMap<String, User> getHashmap() {
+        return hashmap;
+    }
+
+    public LocalDate getBeginDate() {
+        return beginDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
     }
 }

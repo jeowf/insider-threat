@@ -24,5 +24,8 @@ public class HTTPActivity extends Activity{
     public void setUrl(String url) {
         this.url = url;
     }
-    
+    @Override
+    public String toString() {
+        return super.toString() + ", URL: " + url;
+    }
 }

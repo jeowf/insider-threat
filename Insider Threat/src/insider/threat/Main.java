@@ -21,13 +21,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        
-        
         // Lendo arquivo de preferencias
         String preferencesPath = "prefs.txt";
 
         IOManager ioManager;
         DataManager dataManager = new DataManager();
+        CommandHandler ch;
 
         LocalDate beginDate = null;//LocalDate.of(2010, 1, 4);
         LocalDate endDate = null;//LocalDate.of(2010, 12, 5);
@@ -37,59 +36,30 @@ public class Main {
         }
 
         System.out.println("Reading " + preferencesPath);
-        
+
         try {
             ioManager = new IOManager(preferencesPath);
             ioManager.read(dataManager, beginDate, endDate);
-            ioManager.writeOutput(dataManager.generateAnalyze("Foreman", beginDate, endDate));
+            //ioManager.writeOutput(dataManager.generateAnalyze("Foreman", beginDate, endDate));
+            ch = new CommandHandler(ioManager, dataManager);
+            
+            Scanner scan = new Scanner(System.in);
+
+            String command = "";
+            
+            while (!command.equals("quit")) {
+                ch.info();
+                command = scan.nextLine();
+                ch.execute(command);
+            }
+
+            System.out.println("Quitting...");
+            
         } catch (IOException ex) {
             System.out.println("Problems to open the necessary files. Please, check the README.md!");
             System.exit(0);
         }
-/*
-        Scanner scan = new Scanner(System.in);
-        
-        
-        {
-            User u1 = dataManager.getHashMap().get("MCR0314");
-            double[] histogram1 = dataManager.normalize(u1.getHistogram());
-            
-            User u2 = dataManager.getHashMap().get("MEAN");
-            double[] histogram2 = dataManager.normalize(u2.getHistogram());
-            
-            LineChart chart = new LineChart(
-                "User Histogram (" + u1.getName() + " & " + u2.getName() + ")",     
-                u1.getName(),
-                histogram1,
-                u1.getName(),
-                histogram2,
-                u2.getName()
-            );
-            
-            chart.plot();
-            
-        }
-        
-        String s = "5";
-        String id = "";
-        System.out.println("Insira os IDs. ");
-        while(!s.equals(id)){
-            id = scan.next();
-            User u = dataManager.getHashMap().get(id);
-            double[] histogram = dataManager.normalize(u.getHistogram());
-            
-            LineChart chart = new LineChart(
-                "User Histogram (" + u.getName() + ")",     
-                u.getName(),
-                histogram,
-                u.getName()
-            );
-            
-            chart.plot();
-        }*/
-        
-        System.out.println("TESTE");
-        
+
         System.exit(0);
     }
 

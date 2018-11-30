@@ -55,5 +55,12 @@ public class PC extends Field{
         this.activities = activities;
     }
 
+    @Override
+    public String toString() {
+        return "Id: " + id + ", Total of Activities: " + activities.size();
+    }
+    
+    
+
     
 }

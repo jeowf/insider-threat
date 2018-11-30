@@ -4,7 +4,7 @@
 
  - Comandos
  - Definir intervalo de data em prefs.txt
- - 
+ - implementar tostrings das classes nó
 
 
 ## Comandos
@@ -13,7 +13,7 @@ $ hist                            : Mostra o histograma do contexto atual
 
 $ info                            : Mostra os detalhes do contexto atual
 
-$ list <MAX_NUMBER_OF_ELEMENTS>   : Lista os elementos internos
+$ list                            : Lista os elementos internos
 
 $ user <ID>                       : Acessa o usuário conforme o id passado
 
@@ -29,3 +29,4 @@ $ compare <USER_ID_1> <USER_ID_2> : O usuário recebe um histograma de comparaç
 
 $ analyse <ROLE>                  : Escreve no arquivo de saída o resultado da análise. Ao executar volta à raiz. 
 
+$ quit                            : Finalizar aplicação

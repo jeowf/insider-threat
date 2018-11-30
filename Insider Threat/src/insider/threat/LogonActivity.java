@@ -24,5 +24,10 @@ public class LogonActivity extends Activity{
     public void setValue(String value) {
         this.value = value;
     }
+    
+    @Override
+    public String toString() {
+        return super.toString() + ", Logon: " + value;
+    }
         
 }

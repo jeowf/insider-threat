@@ -140,7 +140,7 @@ public class User extends Field implements Comparable<User>{
     }
     @Override
     public String toString(){
-        return "Id: "+id + "\n"+ "Name: "+name +"\n";
+        return "Id: "+id + ", Name: "+name;
     }
 
 
