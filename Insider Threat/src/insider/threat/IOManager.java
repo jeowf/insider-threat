@@ -96,12 +96,11 @@ public class IOManager {
     private void read(DataManager dataManager, int type, LocalDate beginDate, LocalDate endDate) throws FileNotFoundException, IOException {
 
         boolean first_line = true;
-        String line = "";/*
+        String line = "";
         if(type == 3)
         {
             first_line = false;
         }
-         */
         BufferedReader br = new BufferedReader(new FileReader(files[type]));
 
         while ((line = br.readLine()) != null) {

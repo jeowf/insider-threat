@@ -30,7 +30,7 @@ public class Main {
         DataManager dataManager = new DataManager();
 
         LocalDate beginDate = null;//LocalDate.of(2010, 1, 4);
-        LocalDate endDate = null; //LocalDate.of(2010, 12, 5);
+        LocalDate endDate = null;//LocalDate.of(2010, 12, 5);
 
         if (args.length == 1) {
             preferencesPath = args[0];
@@ -44,7 +44,7 @@ public class Main {
             System.out.println("Problems to open the necessary files. Please, check the README.md!");
             System.exit(0);
         }
-
+/*
         Scanner scan = new Scanner(System.in);
         
         String s = "5";
@@ -63,7 +63,7 @@ public class Main {
             );
             
             chart.plot();
-        }
+        }*/
         
         System.out.println("TESTE");
         
