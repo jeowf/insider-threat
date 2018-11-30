@@ -8,9 +8,11 @@ package insider.threat;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.util.Pair;
 import org.jfree.ui.RefineryUtilities;
 
 /**
@@ -28,8 +30,8 @@ public class Main {
         DataManager dataManager = new DataManager();
         CommandHandler ch;
 
-        LocalDate beginDate = null;//LocalDate.of(2010, 1, 4);
-        LocalDate endDate = null;//LocalDate.of(2010, 12, 5);
+        LocalDate beginDate = LocalDate.of(2010, 1, 4);
+        LocalDate endDate = LocalDate.of(2010, 12, 5);
 
         if (args.length == 1) {
             preferencesPath = args[0];
