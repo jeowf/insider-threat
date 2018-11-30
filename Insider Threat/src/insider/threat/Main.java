@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
 
         
-
+        
         // Lendo arquivo de preferencias
         String preferencesPath = "prefs.txt";
 
@@ -36,6 +36,8 @@ public class Main {
             preferencesPath = args[0];
         }
 
+        System.out.println("Reading " + preferencesPath);
+        
         try {
             ioManager = new IOManager(preferencesPath);
             ioManager.read(dataManager, beginDate, endDate);
@@ -46,6 +48,27 @@ public class Main {
         }
 
         Scanner scan = new Scanner(System.in);
+        
+        
+        {
+            User u1 = dataManager.getHashMap().get("MCR0314");
+            double[] histogram1 = dataManager.normalize(u1.getHistogram());
+            
+            User u2 = dataManager.getHashMap().get("MEAN");
+            double[] histogram2 = dataManager.normalize(u2.getHistogram());
+            
+            LineChart chart = new LineChart(
+                "User Histogram (" + u1.getName() + " & " + u2.getName() + ")",     
+                u1.getName(),
+                histogram1,
+                u1.getName(),
+                histogram2,
+                u2.getName()
+            );
+            
+            chart.plot();
+            
+        }
         
         String s = "5";
         String id = "";

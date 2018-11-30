@@ -17,6 +17,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
+ * Based on this: https://www.tutorialspoint.com/jfreechart/jfreechart_line_chart.htm
  * @author morai
  */
 public class LineChart extends JFrame{
@@ -36,21 +37,40 @@ public class LineChart extends JFrame{
       setContentPane( chartPanel );
     }
     
+    public LineChart(String title, String chartTitle, double[] histogram1, String user1, double[] histogram2, String user2) {
+        super(title);
+        
+        JFreeChart lineChart = ChartFactory.createLineChart(
+         chartTitle,
+         "Hours of day","Frequency",
+         createDataset(histogram1, user1, histogram2, user2),
+         PlotOrientation.VERTICAL,
+         true,true,false);
+         
+      ChartPanel chartPanel = new ChartPanel( lineChart );
+      chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+      setContentPane( chartPanel );
+    }
+    
     private DefaultCategoryDataset createDataset(double [] histogram, String user ) {
       DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
       
         for (int i = 0; i < 24; i++) {
             dataset.addValue(histogram[i], user, new Integer(i));
         }
-      /*
-      dataset.addValue( 15 , "schools" , "1970" );
+
+      return dataset;
+    }
+    
+    private DefaultCategoryDataset createDataset(double [] histogram1, String user1, 
+                                                 double [] histogram2, String user2 ) {
+      DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
       
-      
-      dataset.addValue( 30 , "schools" , "1980" );
-      dataset.addValue( 60 , "schools" ,  "1990" );
-      dataset.addValue( 120 , "schools" , "2000" );
-      dataset.addValue( 240 , "schools" , "2010" );
-      dataset.addValue( 300 , "schools" , "2014" );*/
+        for (int i = 0; i < 24; i++) {
+            dataset.addValue(histogram1[i], user1, new Integer(i));
+            dataset.addValue(histogram2[i], user2, new Integer(i));
+        }
+        
       return dataset;
    }
     
