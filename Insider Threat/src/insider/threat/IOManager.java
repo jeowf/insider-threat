@@ -43,6 +43,12 @@ public class IOManager {
     private LocalDate beginDate;
     private LocalDate endDate;
 
+    /**
+     *
+     * @param preferencesFile
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public IOManager(String preferencesFile) throws FileNotFoundException, IOException {
         files = new String[5];
 
@@ -128,6 +134,11 @@ public class IOManager {
         return -1;
     }
 
+    /**
+     *
+     * @param dataManager
+     * @throws IOException
+     */
     public void read(DataManager dataManager) throws IOException {
 
         for (int i = 0; i < 4; i++) {
@@ -158,6 +169,10 @@ public class IOManager {
 
     }
 
+    /**
+     *
+     * @param out
+     */
     public void writeOutput(Pair<LinkedHashMap<User, Double>, LinkedHashMap<User, Double>> out) {
 
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
@@ -185,6 +200,10 @@ public class IOManager {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public String getOutFile() {
         return files[toIndex("out")];
     }

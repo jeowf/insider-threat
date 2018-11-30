@@ -22,6 +22,13 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class LineChart extends JFrame{
     
+    /**
+     *
+     * @param title
+     * @param chartTitle
+     * @param histogram
+     * @param user
+     */
     public LineChart(String title, String chartTitle, double[] histogram, String user) {
         super(title);
         
@@ -37,6 +44,15 @@ public class LineChart extends JFrame{
       setContentPane( chartPanel );
     }
     
+    /**
+     *
+     * @param title
+     * @param chartTitle
+     * @param histogram1
+     * @param user1
+     * @param histogram2
+     * @param user2
+     */
     public LineChart(String title, String chartTitle, double[] histogram1, String user1, double[] histogram2, String user2) {
         super(title);
         
@@ -74,6 +90,9 @@ public class LineChart extends JFrame{
       return dataset;
    }
     
+    /**
+     *
+     */
     public void plot(){
         pack();
         RefineryUtilities.centerFrameOnScreen(this);

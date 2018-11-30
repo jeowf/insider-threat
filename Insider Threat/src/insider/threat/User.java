@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package insider.threat;
 
 import java.time.LocalDate;
@@ -10,7 +5,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author felipemorais2013
+ * @author Felipe Morais da Silva
  * @author Daniel Henrique Ferreira Gomes
  */
 public class User extends Field implements Comparable<User>{
@@ -24,9 +19,17 @@ public class User extends Field implements Comparable<User>{
     
     private String role;
     
-    //private HashMap<LocalDate, Date> datesmap;
     private Date date;
 
+    /**
+     * Construtor
+     * @param id
+     * @param name
+     * @param domain
+     * @param email
+     * @param role
+     * @param date
+     */
     public User(String id, String name, String domain, String email, String role, Date date) {
         this.id = id;
         this.name = name;
@@ -34,20 +37,33 @@ public class User extends Field implements Comparable<User>{
         this.email = email;
         this.role = role;
         this.date = date;
-        //this.datesmap = new HashMap<LocalDate, Date>();
     }
 
+    /**
+     * Recupera data
+     * @return
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     * Altera data
+     * @param date
+     */
     public void setDate(Date date) {
         this.date = date;
     }
     
+    /**
+     * Insere um log
+     * @param newDate
+     * @param pc
+     * @param act
+     * @param time
+     */
     public void insert(Date newDate, PC pc, Activity act, String time){
-        //Node<Date>key = new Node<Date>(date);
-        //dates.insert(key);
+
         if(date.getBeginDate() == null && date.getEndDate() == null)
         {
             date.insertPC(pc, act, time);
@@ -64,69 +80,83 @@ public class User extends Field implements Comparable<User>{
             }
         }
     }
-    
-/*
-    public HashMap<LocalDate, Date> getDatesmap() {
-        return datesmap;
-    }
 
-    public void setDatesmap(HashMap<LocalDate, Date> datesmap) {
-        this.datesmap = datesmap;
-    }
-
-    public void insert(Date date, PC pc, Activity act, String time){
-        //Node<Date>key = new Node<Date>(date);
-        //dates.insert(key);
-        if(datesmap.get(date.getBeginDate()) == null)
-        {
-            date.insertPC(pc, act, time);
-            addtoHistogram(time);
-            datesmap.put(date.getBeginDate(), date);
-        }
-        else
-        {
-            datesmap.get(date.getBeginDate()).insertPC(pc, act, time);
-            addtoHistogram(time);
-            //datesmap.put(date.getBeginDate(), date);
-        }
-    }*/
-
+    /**
+     * Recupera o id
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Altera o id
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Recebe o nome
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Altera o nome
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Recupera o domínio
+     * @return
+     */
     public String getDomain() {
         return domain;
     }
 
+    /**
+     * Altera o domínio
+     * @param domain
+     */
     public void setDomain(String domain) {
         this.domain = domain;
     }
 
+    /**
+     * Recupera o email
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Altera email
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * Recupera role
+     * @return
+     */
     public String getRole() {
         return role;
     }
 
+    /**
+     * Altera role
+     * @param role
+     */
     public void setRole(String role) {
         this.role = role;
     }
@@ -140,7 +170,7 @@ public class User extends Field implements Comparable<User>{
     }
     @Override
     public String toString(){
-        return "Id: "+id + ", Name: "+name;
+        return "Id: "+id + ", Name: "+name + ", Role: " + role;
     }
 
 

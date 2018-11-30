@@ -12,15 +12,28 @@ package insider.threat;
 public class HTTPActivity extends Activity{
     private String url;
 
+    /**
+     *
+     * @param id
+     * @param utl
+     */
     public HTTPActivity(String id, String utl) {
         super(id);
         this.url = utl;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUrl() {
         return url;
     }
 
+    /**
+     *
+     * @param url
+     */
     public void setUrl(String url) {
         this.url = url;
     }

@@ -16,11 +16,20 @@ public class PC extends Field{
     
     private HashMap<String, Activity> activities;
 
+    /**
+     *
+     * @param id
+     */
     public PC(String id) {
         this.id = id;
         this.activities = new HashMap<String, Activity>();
     }
     
+    /**
+     *
+     * @param act
+     * @param time
+     */
     public void insert (Activity act, String time)
     {
         if(activities.get(act.getId()) == null)
@@ -39,18 +48,34 @@ public class PC extends Field{
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public HashMap<String, Activity> getActivities() {
         return activities;
     }
 
+    /**
+     *
+     * @param activities
+     */
     public void setActivities(HashMap<String, Activity> activities) {
         this.activities = activities;
     }

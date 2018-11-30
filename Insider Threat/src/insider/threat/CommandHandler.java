@@ -31,6 +31,11 @@ public class CommandHandler {
 
     private Level currentLevel;
 
+    /**
+     *
+     * @param ioManager
+     * @param dataManager
+     */
     public CommandHandler(IOManager ioManager, DataManager dataManager) {
         this.ioManager = ioManager;
         this.dataManager = dataManager;
@@ -38,14 +43,25 @@ public class CommandHandler {
         currentLevel = Level.ROOT;
     }
 
+    /**
+     *
+     * @return
+     */
     public IOManager getIoManager() {
         return ioManager;
     }
 
+    /**
+     *
+     * @return
+     */
     public DataManager getDataManager() {
         return dataManager;
     }
 
+    /**
+     *
+     */
     public void info() {
         /*
         if (currentLevel == Level.ROOT) {
@@ -69,6 +85,10 @@ public class CommandHandler {
         }
     }
 
+    /**
+     *
+     * @param s
+     */
     public void execute(String s) {
         boolean valid = false;
 

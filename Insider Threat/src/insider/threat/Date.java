@@ -22,6 +22,11 @@ public class Date extends Field implements Comparable<Date>{
     
     private HashMap<String, PC> pcsMap;
 
+    /**
+     *
+     * @param begDate
+     * @param endDate
+     */
     public Date(LocalDate begDate, LocalDate endDate) {
         this.beginDate = begDate;
         this.endDate = endDate;
@@ -29,6 +34,12 @@ public class Date extends Field implements Comparable<Date>{
         this.pcsMap = new HashMap<String, PC>();
     }
 
+    /**
+     *
+     * @param pc
+     * @param act
+     * @param time
+     */
     public void insertPC(PC pc, Activity act, String time )
     {
         //pcs.add(pc);
@@ -47,26 +58,50 @@ public class Date extends Field implements Comparable<Date>{
         //pcsMap.put(pc.getId(), pc);
     }
 
+    /**
+     *
+     * @return
+     */
     public HashMap<String, PC> getPcsMap() {
         return pcsMap;
     }
 
+    /**
+     *
+     * @param pcsMap
+     */
     public void setPcsMap(HashMap<String, PC> pcsMap) {
         this.pcsMap = pcsMap;
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getBeginDate() {
         return beginDate;
     }
 
+    /**
+     *
+     * @param beginDate
+     */
     public void setBeginDate(LocalDate beginDate) {
         this.beginDate = beginDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getEndDate() {
         return endDate;
     }
 
+    /**
+     *
+     * @param endDate
+     */
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }

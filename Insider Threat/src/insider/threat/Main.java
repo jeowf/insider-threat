@@ -21,6 +21,10 @@ import org.jfree.ui.RefineryUtilities;
  */
 public class Main {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         // Lendo arquivo de preferencias

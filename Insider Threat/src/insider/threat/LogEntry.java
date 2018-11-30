@@ -21,19 +21,37 @@ public class LogEntry {
     private LogType logType;
     private String[] fields;
     
+    /**
+     *
+     * @param logType
+     * @param fields
+     */
     public LogEntry(LogType logType, String[] fields){
         this.logType = logType;
         this.fields = fields;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] getFields() {
         return fields;
     }
     
+    /**
+     *
+     * @return
+     */
     public LogType getLogType(){
         return logType;
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     */
     public static LogType toLogType(int i){
         if (i==0)
             return LogType.USER;

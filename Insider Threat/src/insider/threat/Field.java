@@ -12,20 +12,34 @@ package insider.threat;
 public abstract class Field {
     private int[] histogram;
 
+    /**
+     *
+     */
     public Field() {
         this.histogram = new int[24];
 
     }
 
+    /**
+     *
+     * @return
+     */
     public int[] getHistogram() {
         return histogram;
     }
 
+    /**
+     *
+     * @param histogram
+     */
     public void setHistogram(int[] histogram) {
         this.histogram = histogram;
     }
     
-
+    /**
+     *
+     * @param time
+     */
     public void addtoHistogram(String time)
     {
         int pos = Integer.parseInt(time.split(":")[0]);

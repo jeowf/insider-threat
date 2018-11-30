@@ -14,14 +14,26 @@ import java.time.LocalTime;
 public abstract class Activity extends Field{
     private String id;
 
+    /**
+     *
+     * @param id
+     */
     public Activity(String id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }

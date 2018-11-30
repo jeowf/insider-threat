@@ -32,22 +32,39 @@ public class DataManager {
     private LocalDate beginDate;
     private LocalDate endDate;
 
+    /**
+     *
+     */
     public DataManager() {
         //Node<User> root= new Node<User>(null);
         //tree = new Tree<User>(root);
         hashmap = new HashMap<String, User>();
     }
 
+    /**
+     *
+     * @return
+     */
     public HashMap<String, User> getHashMap() {
         return hashmap;
     }
 
+    /**
+     *
+     * @param user
+     */
     public void insertUser(User user) {
         if (hashmap.get(user.getId()) == null) {
             hashmap.put(user.getId(), user);
         }
     }
 
+    /**
+     *
+     * @param log
+     * @param beginDate
+     * @param endDate
+     */
     public void processLog(LogEntry log, LocalDate beginDate, LocalDate endDate) {
         String[] fields = log.getFields();
 
@@ -126,6 +143,13 @@ public class DataManager {
 
     }
 
+    /**
+     *
+     * @param role
+     * @param beginDate
+     * @param endDate
+     * @return
+     */
     public User createMeanUser(String role, LocalDate beginDate, LocalDate endDate)
     {
         int[] mean = new int[24];
@@ -151,6 +175,12 @@ public class DataManager {
         return meanUser;
     }
     
+    /**
+     *
+     * @param ha
+     * @param hm
+     * @return
+     */
     public double euclideanDistance(double[] ha, double[] hm)
     {
         double sum = 0;
@@ -161,6 +191,11 @@ public class DataManager {
         return Math.sqrt(sum);
     }
     
+    /**
+     *
+     * @param array
+     * @return
+     */
     public double[] normalize(int[] array){
         double[] newArray = new double[24];
         Arrays.fill(newArray, 0);
@@ -182,6 +217,12 @@ public class DataManager {
         return newArray;
     }
 
+    /**
+     *
+     * @param list
+     * @param hist
+     * @return
+     */
     public LinkedHashMap<User, Double> 
         detectOutliers(LinkedHashMap<User, Double> list, int[] hist){
         
@@ -236,6 +277,10 @@ public class DataManager {
         return ret;        
     }
 
+    /**
+     *
+     * @param hashMap
+     */
     public void setHashMap(HashMap<String, User> hashMap) {
         this.hashmap = hashMap;
     }
@@ -245,26 +290,50 @@ public class DataManager {
         return "Users: " + size;
     }
 
+    /**
+     *
+     * @param beginDate
+     */
     public void setBeginDate(LocalDate beginDate) {
         this.beginDate = beginDate;
     }
 
+    /**
+     *
+     * @param endDate
+     */
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
+    /**
+     *
+     * @param hashmap
+     */
     public void setHashmap(HashMap<String, User> hashmap) {
         this.hashmap = hashmap;
     }
 
+    /**
+     *
+     * @return
+     */
     public HashMap<String, User> getHashmap() {
         return hashmap;
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getBeginDate() {
         return beginDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getEndDate() {
         return endDate;
     }
